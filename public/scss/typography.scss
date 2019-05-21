@@ -1,0 +1,110 @@
+$font-primary: 'Montserrat', sans-serif;
+$font-secondary: 'Questrial', sans-serif;
+
+h1
+h2
+h3
+h4
+h5
+h6 {
+  margin: .4rem!important;
+  padding: .4rem!important;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  margin-block-start: .4rem!important;
+margin-block-end: .4rem!important;
+font-weight: normal;
+}
+
+p {
+  margin: .4rem!important;
+  padding: .4rem!important;
+}
+
+.body-1 {
+  font-size: 1.135rem;
+  line-height: 1.9rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01886em;
+  margin: 0px;
+  font-family: $font-primary;
+}
+
+.body-2 {
+  font-size: 0.945rem;
+  line-height: 1.465rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01586em;
+  margin: 0px;
+  font-family: $font-primary;
+}
+
+.headline-1 {
+  font-size: 6rem;
+  line-height: 6rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01562em;
+  margin: 20px;
+  font-family: $font-secondary;
+}
+
+.headline-2 {
+  font-size: 3.75rem;
+  line-height: 3.75rem;
+  letter-spacing: -0.00833em;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 20px;
+  font-family: $font-secondary;
+}
+
+.headline-3 {
+  font-size: 3rem;
+  line-height: 3.125rem;
+  letter-spacing: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 20px;
+  font-family: $font-secondary;
+}
+
+.headline-4 {
+  font-size: 2.125rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.00735em;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 20px;
+  font-family: $font-secondary;
+}
+
+.headline-5 {
+  font-size: 1.5rem;
+  letter-spacing: normal;
+  line-height: 2rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 20px;
+  font-family: $font-secondary;
+}
+
+.headline-6 {
+  font-size: 1.25rem;
+  letter-spacing: normal;
+  line-height: 1.8rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 20px;
+  font-family: $font-secondary;
+}

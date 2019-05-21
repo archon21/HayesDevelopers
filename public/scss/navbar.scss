@@ -1,0 +1,153 @@
+@import './color.scss';
+
+#nav {
+  height: 80px;
+  background: $color-primary;
+  z-index: 200;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+#nav-h {
+  min-height: 80px;
+  background: $color-primary;
+  z-index: 200;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.nav-h__upper {
+  min-height: 80px;
+  height: 10%;
+}
+
+#nav-icon1 {
+  width: 60px;
+  height: 45px;
+  left: 15px;
+  top: 15px;
+  position: absolute;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#nav-icon1 span {
+  display: block;
+  position: absolute;
+  height: 0.3em;
+  width: 100%;
+  background: white;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+#nav-icon1 span:nth-child(1) {
+  top: 0px;
+}
+
+#nav-icon1 span:nth-child(2) {
+  top: 18px;
+}
+
+#nav-icon1 span:nth-child(3) {
+  top: 36px;
+}
+
+#nav-icon1.open span:nth-child(1) {
+  top: 18px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+#nav-icon1.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+#nav-icon1.open span:nth-child(3) {
+  top: 18px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.nav__logo {
+  width: 270px;
+  object-fit: contain;
+  height: 70px;
+  margin: 5px;
+  border: none !important;
+}
+
+.nav-h__links {
+  transition: all 0.3s;
+  height: 0;
+  z-index: -100;
+  opacity: 0;
+}
+.nav-h__links a {
+  font-size: 0;
+  transition: font-size 0s;
+}
+
+.open {
+  transition: all 0.3s;
+  height: 150px;
+  z-index: 11;
+  opacity: 1;
+}
+
+.nav-h__links.open a {
+  font-size: 20px;
+  transition: font-size 0s;
+}
+
+.nav__link {
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.nav__link:hover {
+  cursor: pointer;
+  border-top: 2px solid $color-secondary;
+  border-bottom: 2px solid $color-secondary;
+
+  transition: all 0.3s;
+}
+
+.selected {
+  border-top: 2px solid $color-secondary;
+  border-bottom: 2px solid $color-secondary;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+@media only screen and (max-width: 757px) {
+  .nav__logo {
+    display: none;
+  }
+
+  .open {
+    height: 90vh;
+  }
+}
