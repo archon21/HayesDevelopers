@@ -24,9 +24,14 @@ class SinglePage extends Component {
       const { pathname } = this.props.location;
       const targetArr = pathname.split('/');
       const target = targetArr[targetArr.length - 1];
-      await this.props.getTarget(target);
-      const { foundTarget } = this.props;
-      this.setState({ holding: foundTarget });
+      const type =
+        targetArr[targetArr.length - 2] === 'opportunites'
+          ? 'properties'
+          : targetArr[targetArr.length - 2];
+          console.log(this.props.holdings, type, target)
+      const holding = this.props.holdings[type][target];
+
+      this.setState({ holding });
     }
   }
 
@@ -321,7 +326,11 @@ const mapDispatchToProps = dispatch => ({
   sendMessage: message => dispatch(sendMessage(message))
 });
 
+const mapStateToProps = state => ({
+  holdings: state.firebase.holdings
+})
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SinglePage);

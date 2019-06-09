@@ -4,14 +4,14 @@ import {Block } from './containers'
 
 
 const HoldingCard = props => {
-    const {holding, page, pathname, index, display} = props
+    const {holding, page, pathname, index, display, holdingId} = props
     return (
         <Block
         key={holding.name}
         column
         onClick={() =>
           props.history.push({
-            pathname: `/holdings/${pathname}/${holding.name + index}`,
+            pathname: `/holdings/${pathname}/${holdingId}`,
             state: { holding }
           })
         }

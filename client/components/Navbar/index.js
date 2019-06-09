@@ -40,7 +40,7 @@ class Navbar extends Component {
         <div className="nav-h__upper flex row items-center">
           <NavHButton open={open} toggleNavH={this.toggleNavH} />
           <Link to={{pathname: '/'}}>
-          <img src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/logo.png?alt=media&token=a014a66a-b1c2-411c-bede-55117ca8e205" className="nav__logo" />
+          <img src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Logos%2FLogo%20Large%20White.png?alt=media&token=7109b6eb-0243-41fe-88e4-9bd80693679b" className="nav__logo" />
           </Link>
         </div>
 

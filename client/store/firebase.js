@@ -8,19 +8,19 @@ const readDB = (field, data) => ({ type: READ_DB, data, field });
 
 export const willReadDB = field => async dispatch => {
   try {
-    console.log(field);
-
     const collection = db.collection('properties');
     const collection2 = db.collection('development');
     const data = await collection.get().then(snapshots => {
-      const dataArr = [];
-      snapshots.forEach(snapshot => dataArr.push(snapshot.data()));
-      return dataArr;
+      const dataObj = {};
+      snapshots.forEach(snapshot => (dataObj[snapshot.id] = snapshot.data()));
+      return dataObj;
     });
     const data2 = await collection2.get().then(snapshots => {
-      const dataArr = [];
-      snapshots.forEach(snapshot => dataArr.push(snapshot.data()));
-      return dataArr;
+      const dataObj2 = {};
+      snapshots.forEach(
+        snapshot => (dataObj2[snapshot.id] = snapshot.data())
+      );
+      return dataObj2;
     });
     dispatch(readDB('holdings', { properties: data, developments: data2 }));
   } catch (err) {

@@ -34,7 +34,7 @@ class Block extends Component {
     ${blockImage && blockImage}
     ${margin ? margin : 'm-10px'}
     ${full && 'h-100'}
-    flex column align-center justify-center minw-325px minh-325px w-100
+    flex column align-center justify-center minw-325px minh-325px w-100 m-auto
     `}
       >
         <div

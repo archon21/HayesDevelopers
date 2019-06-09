@@ -8,7 +8,8 @@ class LandingCarousel extends Component {
     index: 0,
     fadeAnimation: 'fade--out',
     nameFadeAnimation: 'fade--out--fast',
-    currentInterval: null
+    currentInterval: null,
+    properties: []
   };
   componentDidMount() {
     const curr = setTimeout(() => {
@@ -18,7 +19,8 @@ class LandingCarousel extends Component {
       fadeAnimation: 'fade--in',
       currentInterval: curr,
       nameFadeAnimationL: 'fade--in--fast',
-      propertyToDisplay: this.props.properties[this.state.index]
+      propertyToDisplay: this.props.properties['StorrsRoadPlaza-Mansfield'],
+      properties: Object.values(this.props.properties)
     });
   }
   componentWillUnmount() {
@@ -39,8 +41,7 @@ class LandingCarousel extends Component {
   };
 
   nextImage = () => {
-    const { properties } = this.props;
-    const { index, currentInterval } = this.state;
+    const { index, currentInterval, properties } = this.state;
     clearTimeout(currentInterval);
     this.setState({
       fadeAnimation: 'fade--out',
@@ -53,17 +54,18 @@ class LandingCarousel extends Component {
           propertyToDisplay: properties[0]
         });
       }, 650);
-    } else {setTimeout(() => {
+    } else {
+      setTimeout(() => {
         this.setState({
           index: index + 1,
           propertyToDisplay: properties[index + 1]
         });
-      }, 650);}
+      }, 650);
+    }
   };
 
   prevImage = () => {
-    const { properties } = this.props;
-    const { index, currentInterval } = this.state;
+    const { index, currentInterval, properties } = this.state;
     clearTimeout(currentInterval);
     this.setState({
       fadeAnimation: 'fade--out',
@@ -76,28 +78,30 @@ class LandingCarousel extends Component {
           propertyToDisplay: properties[properties.length - 1]
         });
       }, 450);
-    } else {setTimeout(() => {
+    } else {
+      setTimeout(() => {
         this.setState({
           index: index - 1,
           propertyToDisplay: properties[index - 1]
         });
-      }, 450);}
+      }, 450);
+    }
   };
   render() {
     const {
       propertyToDisplay,
       fadeAnimation,
       nameFadeAnimation,
-      index
+      index,
+      properties
     } = this.state;
 
-    const { properties } = this.props;
     return (
       <div id="carousel-container" className={fadeAnimation}>
         <img
           onLoad={this.handleImageLoad}
           className={fadeAnimation}
-          src={properties[index].image}
+          src={propertyToDisplay.image}
         />
 
         <div

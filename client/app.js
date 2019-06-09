@@ -6,6 +6,7 @@ import Routes from './routes';
 import { willReadDB, alertInteraction } from './store';
 import { Alert, Loader, Fab } from './sub-components';
 
+
 // const firestore = firebase.firestore();
 
 class App extends Component {
@@ -14,8 +15,8 @@ class App extends Component {
   };
   async componentDidMount() {
     await this.props.willReadDB('all');
+
     this.setState({ mounted: true });
-    console.log(this.props.menu);
   }
   render() {
     const { mounted } = this.state;
@@ -64,9 +65,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  menu: state,
   alertTemplate: state.util.alertTemplate,
-  alertStatus: state.util.alertStatus
+  alertStatus: state.util.alertStatus,
+
 });
 
 const mapDispatchToProps = dispatch => ({

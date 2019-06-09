@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { WindoW, Divider, Block, Flex } from '../sub-components/containers';
 import { Video, HoldingCard, Loader } from '../sub-components';
 
+import { db } from '../utilities/firebase';
+
 const citys = [
   'East Hartford',
   'Manchester',
@@ -39,14 +41,18 @@ class Holdings extends Component {
     }
   }
   filter = (filterCat, filter) => {
-    const {holdingsToRenderInitial} = this.state
+    const { holdingsToRenderInitial } = this.state;
     const filtered = [];
     holdingsToRenderInitial.forEach(holding =>
       (holding[filterCat] === filter
         ? filtered.push(holding)
         : console.log('holding')));
 
-    this.setState({ holdingsToRender: filtered, filter: filterCat, filterValue: filter });
+    this.setState({
+      holdingsToRender: filtered,
+      filter: filterCat,
+      filterValue: filter
+    });
   };
 
   mounting = () => {
@@ -54,11 +60,11 @@ class Holdings extends Component {
     const { holdings } = this.props;
     const targetArr = pathname.split('/');
     const target = targetArr[targetArr.length - 1];
-    console.log(target)
+
     if (target === 'opportunities') {
       const leasable = [];
       const reducer = property => property.leasable && leasable.push(property);
-      holdings.properties.forEach(property => reducer(property));
+      Object.values(holdings.properties).forEach(property => reducer(property));
       this.setState({
         page: 'Leasing Opportunities',
         holdingsToRender: leasable,
@@ -79,7 +85,7 @@ class Holdings extends Component {
         page: 'Developments',
         holdingsToRender:
           holdings[target === 'development' ? 'developments' : target],
-          holdingsToRenderInitial:
+        holdingsToRenderInitial:
           holdings[target === 'development' ? 'developments' : target],
         pathname: target,
         mounted: true
@@ -95,42 +101,45 @@ class Holdings extends Component {
       holdingsToRender,
       pathname,
       holdingsCities,
-      filter, filterValue,
+      filter,
+      filterValue,
       mounted
     } = this.state;
 
     return mounted ? (
       <div>
-          <Divider
-            border
-            backgroundColor="background-primary"
-            color="color-secondary"
-          >
-            <Flex column>
-              <h1 className="headline-4">{page}</h1>
-              <Flex row>
-                <div className="menu">
-                  <button className="button ">{filter === '' ? 'City' : filterValue}</button>
-                  <div className="menu-content">
-                    {citys.map(city => {
-                      return (
-                        <div
-                          className="body-1 menu-item"
-                          onClick={() => this.filter('city', city)}
-                        >
-                          {city}
-                        </div>
-                      );
-                    })}
-                  </div>
+        <Divider
+          border
+          backgroundColor="background-primary"
+          color="color-secondary"
+        >
+          <Flex column>
+            <h1 className="headline-4">{page}</h1>
+            <Flex row>
+              <div className="menu">
+                <button className="button ">
+                  {filter === '' ? 'City' : filterValue}
+                </button>
+                <div className="menu-content">
+                  {citys.map(city => {
+                    return (
+                      <div
+                        className="body-1 menu-item"
+                        onClick={() => this.filter('city', city)}
+                      >
+                        {city}
+                      </div>
+                    );
+                  })}
                 </div>
-              </Flex>
+              </div>
             </Flex>
-          </Divider>
-        <WindoW column background="background-secondary">
+          </Flex>
+        </Divider>
+        <WindoW row background="background-secondary">
           <hr />
           <Flex column>
-            {filter === '' && (
+            {/* {filter === '' && (
               <div className="flex row wrap w-100 align-center">
                 <HoldingCard
                   holding={holdingsToRender[4]}
@@ -164,26 +173,29 @@ class Holdings extends Component {
                   />
                 </div>
               </div>
-            )}
+            )} */}
             <Flex row>
-              {holdingsToRender.length > 0 ? (
-                holdingsToRender.map((holding, index) => {
-                  return !dumbArr[index] || filter !== '' ? (
+              {Object.entries(holdingsToRender).length ? (
+                Object.entries(holdingsToRender).map((entry, index) => {
+                  const holdingId = entry[0];
+                  const holding = entry[1];
+                  return (
                     <HoldingCard
-                      key={holding.name}
+                      key={holdingId}
                       holding={holding}
                       page={page}
                       pathname={pathname}
                       index={index}
+                      holdingId={holdingId}
                     />
-                  ) : (
-                    <div />
                   );
                 })
               ) : (
                 <div>
                   <h4 className="headline-4">Sorry...</h4>
-                   <p className="body-1">Seems there were no matches to the filter you appied.</p>
+                  <p className="body-1">
+                    Seems there were no matches to the filter you applied.
+                  </p>
                 </div>
               )}
             </Flex>
