@@ -25,9 +25,10 @@ class SinglePage extends Component {
       const targetArr = pathname.split('/');
       const target = targetArr[targetArr.length - 1];
       const type =
-        targetArr[targetArr.length - 2] === 'opportunites'
-          ? 'properties'
-          : targetArr[targetArr.length - 2];
+        targetArr[targetArr.length - 2] === 'development'
+         ? 'developments'
+          : 'properties'
+
           console.log(this.props.holdings, type, target)
       const holding = this.props.holdings[type][target];
 
@@ -146,7 +147,7 @@ class SinglePage extends Component {
           <h1 className="headline-4">{holding.name}</h1>
         </Divider>
         <hr />
-        <WindoW row align="align-end" background="background-secondary">
+        <WindoW column background="background-secondary">
           <Carousel
             primary={holding.name}
             items={holding.imageArr}
