@@ -26,10 +26,10 @@ class SinglePage extends Component {
       const target = targetArr[targetArr.length - 1];
       const type =
         targetArr[targetArr.length - 2] === 'development'
-         ? 'developments'
-          : 'properties'
+          ? 'developments'
+          : 'properties';
 
-          console.log(this.props.holdings, type, target)
+      console.log(this.props.holdings, type, target);
       const holding = this.props.holdings[type][target];
 
       this.setState({ holding });
@@ -147,7 +147,7 @@ class SinglePage extends Component {
           <h1 className="headline-4">{holding.name}</h1>
         </Divider>
         <hr />
-        <WindoW column background="background-secondary">
+        <WindoW column backgroundUrl={holding.image}>
           <Carousel
             primary={holding.name}
             items={holding.imageArr}
@@ -233,7 +233,7 @@ class SinglePage extends Component {
         <hr />
 
         <WindoW background="background-primary">
-          <Flex width="w-90" row backgroundColor="background-primary">
+          <div className="flex row wrap w-90 background-primary justify-space-evenly align-center">
             <Block
               column
               type="info-card"
@@ -312,7 +312,7 @@ class SinglePage extends Component {
                 <p className="body-1">{holding.description}</p>
               </Block>
             )}
-          </Flex>
+          </div>
         </WindoW>
       </div>
     ) : (
@@ -329,7 +329,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
   holdings: state.firebase.holdings
-})
+});
 
 export default connect(
   mapStateToProps,

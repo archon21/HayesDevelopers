@@ -6,6 +6,18 @@
   .m-#{$value}px {
     margin: $value  + px;
   }
+  .my-#{$value}px {
+    margin: $value  + px 0;
+  }
+  .mx-#{$value}px {
+    margin: 0 $value  + px;
+  }
+  .py-#{$value}px {
+    padding: $value  + px 0;
+  }
+  .px-#{$value}px {
+    padding: 0 $value  + px;
+  }
 }
 
 .py-5{

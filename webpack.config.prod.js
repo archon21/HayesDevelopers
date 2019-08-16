@@ -1,26 +1,24 @@
-var webpack = require('webpack');
-var CompressionPlugin = require('compression-webpack-plugin');
-const path = require('path');
-const WebpackMd5Hash = require('webpack-md5-hash');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const PurifyCSSPlugin = require('purifycss-webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+const isDev = process.env.NODE_ENV === 'development';
+const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-module.exports = {
-  entry: { bundled: './client/index.js', style: './public/style.scss' },
-  target: 'web',
+module.exports = () => ({
   mode: 'production',
+  entry: {
+    vendor: ['react'],
+    bundle: ['@babel/polyfill', './client/index.js'],
+    style: './public/style.scss'
+  },
+  target: 'web',
+
   output: {
     filename: '[name].js',
     path: path.join(__dirname, 'public', 'js'),
-    chunkFilename: '[id].[chunkhash].js',
-    library: '[name]',
-    libraryTarget: 'var'
+    chunkFilename: '[id].[chunkhash].js'
   },
 
   module: {
@@ -40,7 +38,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [path.resolve('./node_modules'), './src/scss']
+              includePaths: [path.resolve('./node_modules'), './public/scss']
             }
           }
         ]
@@ -55,35 +53,24 @@ module.exports = {
       }
     ]
   },
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: false // set to true if you want JS source maps
-
-      }),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          discardComments: {
-            removeAll: true
-          }
-        }
-      })
-    ]
-  },
+  // optimization: {
+  //   minimizer: [
+  //     new UglifyJsPlugin({
+  //       cache: true,
+  //       parallel: true,
+  //       sourceMap: false // set to true if you want JS source maps
+  //     }),
+  //     new OptimizeCSSAssetsPlugin({
+  //       cssProcessorOptions: {
+  //         discardComments: {
+  //           removeAll: true
+  //         }
+  //       }
+  //     })
+  //   ]
+  // },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'css/style.css'
-    }),
-    new BundleAnalyzerPlugin(),
-    new WebpackMd5Hash(),
-    new CompressionPlugin({
-      algorithm: 'gzip',
-      test: /\.js$|\.scss$|\.html$|$\.css$/,
-      threshold: 10240,
-      minRatio: 0.8
-    }),
-    new CopyWebpackPlugin(['./static'])
+    //   // new CleanWebpackPlugin('dist', {}),
+    new MiniCssExtractPlugin({ filename: 'css/style.css' })
   ]
-};
+});

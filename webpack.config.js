@@ -6,20 +6,20 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = () => ({
-  entry: { bundled: './client/index.js', style: './public/style.scss' },
+  entry: {
+    vendor: ['react'],
+    bundle: ['@babel/polyfill', './client/index.js'],
+    style: './public/style.scss'
+  },
   target: 'web',
   mode: isDev ? 'development' : 'production',
 
   output: {
     filename: '[name].js',
-
     path: path.join(__dirname, 'public', 'js'),
     chunkFilename: '[id].[chunkhash].js'
   },
   devtool: 'source-maps',
-  // optimization: {
-  //   minimizer: [new OptimizeCSSAssetsPlugin()]
-  // },
   module: {
     rules: [
       {

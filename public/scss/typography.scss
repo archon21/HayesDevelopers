@@ -108,3 +108,11 @@ p {
   margin: 20px;
   font-family: $font-secondary;
 }
+
+.link {
+  transition: text-decoration 200ms ease-in-out;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

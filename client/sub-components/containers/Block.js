@@ -19,39 +19,39 @@ class Block extends Component {
       maxWidth,
       blockImage,
       margin,
+      height,
+      width,
       full
     } = this.props;
     const direction = column ? 'column' : 'row';
-    console.log(full);
+    console.log(full)
     return (
-      <div
-        className={`
+    <div className={`
     block
     ${type && type}
     ${maxWidth && maxWidth}
     ${maxHeight && maxHeight}
     ${backgroundColor && backgroundColor}
     ${blockImage && blockImage}
+    ${height && height}
     ${margin ? margin : 'm-10px'}
-    ${full && 'h-100'}
-    flex column align-center justify-center minw-325px minh-325px w-100 m-auto
-    `}
-      >
-        <div
-          onClick={onClick ? onClick : null}
-          style={style}
-          className={`
-          py-5
-        ${full && 'h-100'}
+    ${width ? width : 'w-100'}
+    flex column align-center justify-center minw-325px minh-325px
+    `}>
+      <div
+        onClick={onClick ? onClick : null}
+        style={style}
+        className={`
+        ${full && 'h-90'}
         ${image ? 'justify-space-evenly' : 'justify-center'}
          flex ${direction}
          ${color && color}
          ${blockImage && 'relative h-100 w-100'}
          align-center block--inner w-90`}
-        >
-          {children}
-        </div>
+      >
+        {children}
       </div>
+    </div>
     );
   }
 }

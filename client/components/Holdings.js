@@ -138,8 +138,8 @@ class Holdings extends Component {
         </Divider>
         <WindoW row background="background-secondary">
           <hr />
-          <Flex column>
-            {/* {filter === '' && (
+
+          {/* {filter === '' && (
               <div className="flex row wrap w-100 align-center">
                 <HoldingCard
                   holding={holdingsToRender[4]}
@@ -174,32 +174,31 @@ class Holdings extends Component {
                 </div>
               </div>
             )} */}
-            <Flex row>
-              {Object.entries(holdingsToRender).length ? (
-                Object.entries(holdingsToRender).map((entry, index) => {
-                  const holdingId = entry[0];
-                  const holding = entry[1];
-                  return (
-                    <HoldingCard
-                      key={holdingId}
-                      holding={holding}
-                      page={page}
-                      pathname={pathname}
-                      index={index}
-                      holdingId={holdingId}
-                    />
-                  );
-                })
-              ) : (
-                <div>
-                  <h4 className="headline-4">Sorry...</h4>
-                  <p className="body-1">
-                    Seems there were no matches to the filter you applied.
-                  </p>
-                </div>
-              )}
-            </Flex>
-          </Flex>
+          <div className="flex row align-center w-100 h-100 wrap">
+            {Object.entries(holdingsToRender).length ? (
+              Object.entries(holdingsToRender).map((entry, index) => {
+                const holdingId = entry[0];
+                const holding = entry[1];
+                return (
+                  <HoldingCard
+                    key={holdingId}
+                    holding={holding}
+                    page={page}
+                    pathname={pathname}
+                    index={index}
+                    holdingId={holdingId}
+                  />
+                );
+              })
+            ) : (
+              <div>
+                <h4 className="headline-4">Sorry...</h4>
+                <p className="body-1">
+                  Seems there were no matches to the filter you applied.
+                </p>
+              </div>
+            )}
+          </div>
         </WindoW>
       </div>
     ) : (

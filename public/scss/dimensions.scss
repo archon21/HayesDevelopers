@@ -9,8 +9,6 @@
   }
 }
 
-
-
 @for $j from 0 to 30 {
   $maxVal: $j * 50;
   .maxw-#{$maxVal}px {
@@ -39,7 +37,6 @@
   min-width: 100vw;
 }
 
-
 .w-100vw {
   width: 100vw;
 }
@@ -64,8 +61,6 @@
   width: auto;
 }
 
-
-
 .h-110 {
   height: 110%;
 }
@@ -76,4 +71,12 @@
 
 .w-100vw {
   width: 100vw;
+}
+
+.blur {
+  filter: blur(5);
+}
+
+.w-325px {
+  width: 325px;
 }
