@@ -26,7 +26,8 @@ class Holdings extends Component {
     filter: '',
     filterValue: '',
     mounted: false,
-    page: ''
+    page: '',
+    filterStatus: true
   };
 
   async componentDidMount() {
@@ -42,16 +43,21 @@ class Holdings extends Component {
   }
   filter = (filterCat, filter) => {
     const { holdingsToRenderInitial } = this.state;
-    const filtered = [];
-    holdingsToRenderInitial.forEach(holding =>
-      (holding[filterCat] === filter
-        ? filtered.push(holding)
-        : console.log('holding')));
-
+    const filtered = {};
+    let counter = 0;
+    Object.entries(holdingsToRenderInitial).forEach(data => {
+      let key = data[0];
+      let holding = data[1];
+      if (holding[filterCat] === filter) {
+        counter++;
+        filtered[key] = holding;
+      }
+    });
     this.setState({
       holdingsToRender: filtered,
       filter: filterCat,
-      filterValue: filter
+      filterValue: filter,
+      filterStatus: counter > 0
     });
   };
 
@@ -100,10 +106,12 @@ class Holdings extends Component {
       page,
       holdingsToRender,
       pathname,
+      holdingsToRenderInitial,
       holdingsCities,
       filter,
       filterValue,
-      mounted
+      mounted,
+      filterStatus
     } = this.state;
 
     return mounted ? (
@@ -138,7 +146,6 @@ class Holdings extends Component {
         </Divider>
         <WindoW row background="background-secondary">
           <hr />
-
           {/* {filter === '' && (
               <div className="flex row wrap w-100 align-center">
                 <HoldingCard
@@ -174,9 +181,11 @@ class Holdings extends Component {
                 </div>
               </div>
             )} */}
-          <div className="flex row align-center w-100 h-100 wrap">
-            {Object.entries(holdingsToRender).length ? (
-              Object.entries(holdingsToRender).map((entry, index) => {
+          {filterStatus ? (
+            <div className="flex row align-center w-100 h-100 wrap">
+              {Object.entries(
+                filter === '' ? holdingsToRenderInitial : holdingsToRender
+              ).map((entry, index) => {
                 const holdingId = entry[0];
                 const holding = entry[1];
                 return (
@@ -189,16 +198,17 @@ class Holdings extends Component {
                     holdingId={holdingId}
                   />
                 );
-              })
-            ) : (
-              <div>
-                <h4 className="headline-4">Sorry...</h4>
-                <p className="body-1">
-                  Seems there were no matches to the filter you applied.
-                </p>
-              </div>
-            )}
-          </div>
+              })}
+            </div>
+          ) : (
+            <div>
+              <h4 className="headline-4">Sorry...</h4>
+
+              <p className="body-1">
+                Seems there were no matches to the filter you applied.
+              </p>
+            </div>
+          )}
         </WindoW>
       </div>
     ) : (

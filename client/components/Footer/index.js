@@ -21,33 +21,20 @@ class Footer extends React.Component {
   handleSubmit = event => {
     console.log(this.state);
     event.preventDefault();
-    let all = true;
-    const error = {};
-    Object.entries(this.state).forEach(field => {
-      if (field[1] === '') {
-        all = false;
-        error[field[0]] = true;
-      }
+    this.props.sendMessage(this.state);
+    this.setState({
+      error: {},
+      sent: true,
+      email: '',
+      name: '',
+      message: '',
+      subject: '',
+      phone: ''
     });
-    if (all) {
-      this.props.sendMessage(this.state);
-      this.setState({
-        error: {},
-        sent: true,
-        email: '',
-        name: '',
-        message: '',
-        subject: '',
-        phone: ''
-      });
-    } else {
-      this.setState({ error });
-    }
   };
 
   render() {
-    const { phone, company } = this.props;
-    const { error, sent } = this.state;
+    const { sent, phone, email, subject, message, name } = this.state;
     return (
       <footer id="footer">
         <form
@@ -55,7 +42,7 @@ class Footer extends React.Component {
           onSubmit={this.handleSubmit}
         >
           <div className=" flex row align-center">
-            <h4 className="headline-5 color-secondary">How Can We Help?</h4>
+            <h4 className="headline-4 color-secondary">How Can We Help?</h4>
           </div>
           <div className="flex row wrap align-center justify-space-evenly">
             <TextField
@@ -65,6 +52,7 @@ class Footer extends React.Component {
               variant="outlined"
               onChange={this.handleChange}
               className="footer__contact__textfield"
+              value={name}
             />
             <TextField
               placeholder="Email"
@@ -73,6 +61,7 @@ class Footer extends React.Component {
               variant="outlined"
               onChange={this.handleChange}
               className="footer__contact__textfield"
+              value={email}
             />
             <TextField
               placeholder="Phone"
@@ -81,6 +70,7 @@ class Footer extends React.Component {
               variant="outlined"
               onChange={this.handleChange}
               className="footer__contact__textfield"
+              value={phone}
             />
             <TextField
               placeholder="Subject"
@@ -89,6 +79,7 @@ class Footer extends React.Component {
               variant="outlined"
               onChange={this.handleChange}
               className="footer__contact__textfield"
+              value={subject}
             />
           </div>
           <TextField
@@ -99,9 +90,10 @@ class Footer extends React.Component {
             variant="outlined"
             onChange={this.handleChange}
             className="footer__contact__textfield footer__textarea"
+            value={message}
           />
           {sent && (
-            <h6 className="headline-6 color-black">
+            <h6 className="headline-5 color-white">
               Your Message has been Sent.
             </h6>
           )}
