@@ -63,32 +63,30 @@ class Home extends Component {
           maxHeight="maxh-500px"
           maxWidth="maxw-800px"
         >
-        <Flex column width="w-90">
+          <Flex column width="w-90">
+            <Block
+              column
+              type="info-card"
+              backgroundColor="background-secondary"
+              color="color-primary"
+            >
+              <p className="body-1 p-20px">
+                <i>
+                  Since 1974, Hayes Developers has been a leader in real estate
+                  development, leasing and property management of retail
+                  shopping centers. Our longevity and integrity are why many
+                  companies in the New England area trust the Hayes Team with
+                  their development needs.
+                </i>
+              </p>
 
-          <Block
-            column
-            type="info-card"
-            backgroundColor="background-secondary"
-            color="color-primary"
-
-          >
-            <p className="body-1 p-20px">
-              <i>
-              Since 1974, Hayes Developers has been a leader in real estate
-              development, leasing and property management of retail shopping
-              centers. Our longevity and integrity are why many companies in the
-              New England area trust the Hayes Team with their development
-              needs.
-              </i>
-            </p>
-
-            <Link to={{ pathname: '/hayes-team' }} className="headliner-4">
-              <h4 className="headline-4 color-primary">
-                Read More about the Hayes Team
-              </h4>
-            </Link>
-          </Block>
-        </Flex>
+              <Link to={{ pathname: '/hayes-team' }} className="headliner-4">
+                <h4 className="headline-4 color-primary">
+                  Read More about the Hayes Team
+                </h4>
+              </Link>
+            </Block>
+          </Flex>
         </Animator>
         <Divider
           border
@@ -180,37 +178,37 @@ class Home extends Component {
           <h1 className="headline-4">Sporting Events</h1>
         </Divider>
         <WindoW backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/berlin-center-plaza%2FIMG_5796.JPG?alt=media&token=54ac8ffb-17a2-4730-b2e5-0a3e39a2bd53">
-        <Flex row justify="justify-space-evenly" width="w-90">
-          <Animator
-            inRef={sportingBlock}
-            scrolled={scrolled}
-            animation="a-wrapper--left"
-            maxHeight="maxh-450px"
-            maxWidth="maxw-450px"
-          >
-            <Block column type="info-card" full>
-              <h4 className="headline-4 color-secondary p-20px">
-                Sporting Events Sponsorship
-              </h4>
-              <p className="body-1 color-secondary p-20px">
-                In addition, we sponsor many golf and tennis outings in
-                conjunction with our retailers to help raise money and
-                awareness.
-              </p>
-            </Block>
-          </Animator>
-          <Animator
-            inRef={sportingBlock2}
-            scrolled={scrolled}
-            animation="a-wrapper--right"
-            maxHeight="maxh-450px"
-            maxWidth="maxw-450px"
-          >
-            <Block type="info-card" column full>
-              <List alternating list={sporting} />
-            </Block>
-          </Animator>
-        </Flex>
+          <Flex row justify="justify-space-evenly" width="w-90">
+            <Animator
+              inRef={sportingBlock}
+              scrolled={scrolled}
+              animation="a-wrapper--left"
+              maxHeight="maxh-450px"
+              maxWidth="maxw-450px"
+            >
+              <Block column type="info-card" full>
+                <h4 className="headline-4 color-secondary p-20px">
+                  Sporting Events Sponsorship
+                </h4>
+                <p className="body-1 color-secondary p-20px">
+                  In addition, we sponsor many golf and tennis outings in
+                  conjunction with our retailers to help raise money and
+                  awareness.
+                </p>
+              </Block>
+            </Animator>
+            <Animator
+              inRef={sportingBlock2}
+              scrolled={scrolled}
+              animation="a-wrapper--right"
+              maxHeight="maxh-450px"
+              maxWidth="maxw-450px"
+            >
+              <Block type="info-card" column full>
+                <List alternating list={sporting} />
+              </Block>
+            </Animator>
+          </Flex>
         </WindoW>
         <Divider
           border
@@ -224,52 +222,70 @@ class Home extends Component {
           column={true}
           backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/newington-cvs%2FIMG_5701.JPG?alt=media&token=2cad2089-cd56-4c53-b2b0-5cf4f1aaa879"
         >
-         <Flex column>
-
-          <Animator
-            inRef={carousel}
-            scrolled={scrolled}
-            animation="a-wrapper--opacity"
-            maxHeight="maxh-400px"
-            maxWidth="maxw-400px"
-
-          >
-
-
-            <Carousel
-              contain
+          <Flex column>
+            <Animator
+              inRef={carousel}
+              scrolled={scrolled}
+              animation="a-wrapper--opacity"
               maxHeight="maxh-400px"
-              items={[
-                {
-                  primary: 'Connecticut General Assembly',
-                  image:
-                    'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGeneralAssembly1999.jpg?alt=media&token=4b1672b6-3c20-4478-bc86-40188c4d2ecd'
-                },
-                {
-                  primary: 'Ground Breaking, Fenn Road Plaza',
-                  image:
-                    'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGroundbreakingFennRdNewington1992.jpg?alt=media&token=30b57496-f2cf-447c-b4f0-add9c3585caf'
-                },
-                {
-                  primary: 'East Catholic High School',
-                  image:
-                    'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FECHS1986.jpg?alt=media&token=289c1ccf-a773-4d2b-8d48-efd2e0ec67f8'
-                },
-                {
-                  primary:
-                    'Newington Chambeer of Commerce, Beautification Award',
-                  image:
-                    'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonBeautificationAward1999.jpg?alt=media&token=c1aefb84-224c-4eec-865c-c9618b051ca2'
-                },
-                {
-                  image:
-                    'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonTownCouncil1999.jpg?alt=media&token=abfa7003-daee-4273-9f5a-f5e8c843094e'
-                }
-              ]}
+              maxWidth="maxw-400px"
+            >
+              <Carousel
+                contain
+                maxHeight="maxh-400px"
+                items={[
+                  {
+                    primary: 'Connecticut General Assembly',
+                    image:
+                      'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGeneralAssembly1999.jpg?alt=media&token=4b1672b6-3c20-4478-bc86-40188c4d2ecd'
+                  },
+                  {
+                    primary: 'Ground Breaking, Fenn Road Plaza',
+                    image:
+                      'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGroundbreakingFennRdNewington1992.jpg?alt=media&token=30b57496-f2cf-447c-b4f0-add9c3585caf'
+                  },
+                  {
+                    primary: 'East Catholic High School',
+                    image:
+                      'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FECHS1986.jpg?alt=media&token=289c1ccf-a773-4d2b-8d48-efd2e0ec67f8'
+                  },
+                  {
+                    primary:
+                      'Newington Chambeer of Commerce, Beautification Award',
+                    image:
+                      'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonBeautificationAward1999.jpg?alt=media&token=c1aefb84-224c-4eec-865c-c9618b051ca2'
+                  },
+                  {
+                    image:
+                      'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonTownCouncil1999.jpg?alt=media&token=abfa7003-daee-4273-9f5a-f5e8c843094e'
+                  }
+                ]}
+              />
+            </Animator>
+          </Flex>
+          <Divider color="color-white" backgroundColor="background-primary">
+            <h4 className="headline-4">
+              We Have Also Developed for the Following Companies
+            </h4>
+          </Divider>
+          <div className="home__logos flex row align-center w-100">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fwendies.png?alt=media&token=4dae5834-46e2-4341-b5e2-7ad31602b45c"
+              className="home__logos__img"
             />
-
-          </Animator>
-         </Flex>
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fmcdonalds.jpeg?alt=media&token=df0c3768-8a0d-4f36-b3fb-b4be0a3dc4a5"
+              className="home__logos__img"
+            />
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fxtra.jpeg?alt=media&token=d68e925d-3511-472f-876c-55810c9a6854"
+              className="home__logos__img"
+            />
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fdownload%20(2).png?alt=media&token=8ced3483-8183-4730-934c-d8ffd2ac230d"
+              className="home__logos__img"
+            />
+          </div>
         </WindoW>
       </div>
     );

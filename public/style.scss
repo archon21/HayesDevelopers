@@ -217,6 +217,27 @@ background-color: rgba(1, 64, 133,.8)
   font-size: 75px!important;
 }
 
+.home__logos {
+  animation: moveSlideshow 10s linear infinite;
+
+  position: relative;
+transform: translate3d(100%, 0, 0);
+}
+
+@keyframes moveSlideshow {
+  100% {
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+.home__logos__img {
+  width: 250px;
+  object-fit: contain;
+  margin: 0 30px;
+  left: 0;
+  top: 0;
+}
+
 
 
 .footer-striped {
