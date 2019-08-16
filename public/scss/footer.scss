@@ -6,7 +6,7 @@
   left: 0;
   min-height: 276px;
   width: 100vw;
-  border-top: 10px solid #014085;
+  border-top: 5px solid gold;
   z-index: 10;
 }
 
@@ -23,7 +23,8 @@
 }
 
 .footer__contact {
-  background-color: rgb(1, 145, 240);
+//   background-color: rgb(1, 145, 240);
+background-color: #014085;
   width: 100%;
   padding: 20px 5px 5px;
   border-bottom: 5px solid gold;

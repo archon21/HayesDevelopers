@@ -15,7 +15,7 @@ const Services = () => {
       </Divider>
       <WindoW
         column
-        background="background-primary"
+        backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/fenn-rd-plaza%2FDSC_2043%20copy.JPG?alt=media&token=98340314-70a8-4471-8b25-bea88128564c"
       >
         <hr />
         <Flex width="w-90" column>
@@ -24,8 +24,7 @@ const Services = () => {
             type="info-card"
             maxHeight="maxh-700px"
             maxWidth="maxw-1000px"
-            backgroundColor="background-secondary"
-            color="color-primary"
+            color="color-secondary"
           >
 
             <p className="body-1">
@@ -44,8 +43,7 @@ const Services = () => {
             type="info-card"
             maxHeight="maxh-700px"
             maxWidth="maxw-1000px"
-            backgroundColor="background-secondary"
-            color="color-primary"
+            color="color-secondary"
           >
 
             <p className="body-1 ">
@@ -65,8 +63,7 @@ const Services = () => {
             type="info-card"
             maxHeight="maxh-700px"
             maxWidth="maxw-1000px"
-            backgroundColor="background-secondary"
-            color="color-primary"
+            color="color-secondary"
           >
 
             <p className="body-1 ">
@@ -86,8 +83,8 @@ const Services = () => {
               type="info-card"
               maxHeight="maxh-400px"
               maxWidth="maxw-400px"
-              backgroundColor="background-secondary"
-              color="color-primary"
+
+              color="color-secondary"
             >
 
                 <h6 className="headline-6 text-center">Property Management Services</h6>

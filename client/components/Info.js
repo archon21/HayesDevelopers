@@ -13,7 +13,7 @@ const Info = () => {
       >
         <h1 className="headline-4">The Hayes Team</h1>
       </Divider>
-      <WindoW column backgroundColor="background-white">
+      <WindoW column backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/storrs-rd-plaza%2F302.JPG?alt=media&token=e10ea0cb-6615-478b-a43e-21a45138081f">
         <hr />
         {/* <img src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Hayes-Corp_Building_for_web.jpg?alt=media&token=f07d2d37-353d-4f0a-88f8-46edcf7eb095" /> */}
 

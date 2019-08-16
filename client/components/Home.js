@@ -179,7 +179,7 @@ class Home extends Component {
         >
           <h1 className="headline-4">Sporting Events</h1>
         </Divider>
-        <WindoW backgroundUrl="https://firebasestorage.googleapis.com/v0/b/ryan-wetmore.appspot.com/o/aerial-view-architecture-autumn-280221.jpg?alt=media&token=abcafdb8-c964-40bf-89c8-5b22eb699735">
+        <WindoW backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/berlin-center-plaza%2FIMG_5796.JPG?alt=media&token=54ac8ffb-17a2-4730-b2e5-0a3e39a2bd53">
         <Flex row justify="justify-space-evenly" width="w-90">
           <Animator
             inRef={sportingBlock}

@@ -29,7 +29,7 @@ class Alert extends Component {
     const { open } = this.state;
     const { template, customStyle } = this.props;
     return open ? (
-      <div className="alert flex align-center justify-center">
+      <div className="alert single-popup flex align-center justify-center">
         <div className="alert__catcher" onClick={this.props.alertInteraction} />
         <div
           style={customStyle && customStyle}

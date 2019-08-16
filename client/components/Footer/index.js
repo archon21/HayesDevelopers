@@ -97,7 +97,7 @@ class Footer extends React.Component {
               Your Message has been Sent.
             </h6>
           )}
-          <button className="button" type="submit">
+          <button className="button background-white color-primary" type="submit">
             Send
           </button>
         </form>

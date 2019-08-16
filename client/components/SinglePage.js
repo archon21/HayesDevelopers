@@ -66,9 +66,13 @@ class SinglePage extends Component {
       true,
       <div className="w-100 h-100 flex column align-center justify-center relative">
         <img
-          className="w-100 h-100 object-cover"
+          className="w-100 h-100 object-contain background-primary"
           src={holding.imageArr[newImage]}
+          onClick={this.nextitem}
         />
+          <button onClick={() => this.props.alertInteraction(false)}>
+          <i className="single-popup-icon material-icons color-white">close</i>
+          </button>
         <div onClick={this.previtem} className="carosuel-right-button">
           <span />
           <span />
@@ -94,9 +98,13 @@ class SinglePage extends Component {
       true,
       <div className="w-100 h-100 flex column align-center justify-center relative">
         <img
-          className="w-100 h-100 object-cover"
+          className="w-100 h-100 object-contain background-primary"
           src={holding.imageArr[newImage]}
+          onClick={this.nextitem}
         />
+        <button onClick={() => this.props.alertInteraction(false)}>
+          <i className="single-popup-icon material-icons color-white">close</i>
+        </button>
         <div onClick={this.previtem} className="carosuel-right-button">
           <span />
           <span />
@@ -116,9 +124,13 @@ class SinglePage extends Component {
       true,
       <div className="w-100 h-100 flex column align-center justify-center relative">
         <img
-          className="w-100 h-100 object-cover"
+          className="w-100 h-100 object-contain background-primary"
           src={holding.imageArr[index]}
+          onClick={this.nextitem}
         />
+          <button onClick={() => this.props.alertInteraction(false)}>
+          <i className="single-popup-icon material-icons color-white">close</i>
+          </button>
         <div onClick={this.previtem} className="carosuel-right-button">
           <span />
           <span />
