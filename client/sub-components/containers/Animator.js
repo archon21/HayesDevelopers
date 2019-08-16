@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 
 class Animator extends Component {
-
   render() {
-    const { inRef, children, scrolled, animation, maxWidth, maxHeight } = this.props;
-    console.log(inRef.current && inRef)
+    const {
+      inRef,
+      children,
+      scrolled,
+      animation,
+      maxWidth,
+      maxHeight
+    } = this.props;
+
     return (
       <div
-
         ref={inRef && inRef}
         className={` ${maxWidth} ${maxHeight} ${
           animation ? animation : 'a-wrapper--right'

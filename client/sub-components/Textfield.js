@@ -10,7 +10,6 @@ class Textfield extends Component {
     const { value, name } = event.target;
     this.setState({ value: value });
     this.props.dataHook({ name, value });
-    console.log(name, value);
   };
 
   removeError = () => {

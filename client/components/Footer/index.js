@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
-import { alertInteraction, sendMessage } from '../../store';
+import { alertInteraction, sendMessage, getFooterCoords } from '../../store';
 
 class Footer extends React.Component {
   state = {
@@ -15,11 +15,28 @@ class Footer extends React.Component {
     error: {},
     sent: false
   };
+
+  footer = React.createRef();
+
+  componentDidMount() {
+
+    setTimeout(() => {
+      this.props.getFooterCoords(
+        this.footer.current && this.footer.current.offsetTop
+      );
+    }, 500);
+  }
+  componentDidUpdate() {
+
+    this.footer.current &&
+      this.footer.current.offsetTop !== this.props.footerCoords &&
+      this.props.getFooterCoords(this.footer.current.offsetTop);
+  }
+
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
   handleSubmit = event => {
-    console.log(this.state);
     event.preventDefault();
     this.props.sendMessage(this.state);
     this.setState({
@@ -36,7 +53,7 @@ class Footer extends React.Component {
   render() {
     const { sent, phone, email, subject, message, name } = this.state;
     return (
-      <footer id="footer">
+      <footer ref={this.footer} id="footer">
         <form
           className="footer__contact flex column align-center"
           onSubmit={this.handleSubmit}
@@ -97,7 +114,10 @@ class Footer extends React.Component {
               Your Message has been Sent.
             </h6>
           )}
-          <button className="button background-white color-primary" type="submit">
+          <button
+            className="button background-white color-primary"
+            type="submit"
+          >
             Send
           </button>
         </form>
@@ -105,23 +125,21 @@ class Footer extends React.Component {
         <div className="footer__inner flex row wrap items-start justify-center align-center my-10px">
           <div className="w-325px column wrap align-center text-center flex margin-10px">
             <p className="body-1" style={{ color: 'gold' }}>
-              Richard P. Hayes, Sr.{' '}
-              <p className="body-2 footer-striped">Principal</p>
+              Richard P. Hayes, Sr.
             </p>
-
+            <p className="body-2 footer-striped">Principal</p>
             <p className="body-1" style={{ color: 'gold' }}>
               Richard P. Hayes, Jr.{' '}
-              <p className="body-2 footer-striped">Principal</p>
             </p>
+            <p className="body-2 footer-striped">Principal</p>
           </div>
 
           <div className="w-325px flex column wrap align-center">
             <h1 id="info-block">Hayes Developers</h1>
 
             <div className=" margin-10px flex column wrap text-center">
-              <p>
-                1471 Pleasant Valley Road <p> Manchester, CT 06042</p>
-              </p>
+              <p className="headline-5">1471 Pleasant Valley Road</p>
+              <p className="body-1"> Manchester, CT 06042</p>
             </div>
             <div className="flex column wrap margin-10px text-center">
               <p>Ph: (860) 646-0131</p> <p>Fax: (860) 644-9073</p>
@@ -130,13 +148,12 @@ class Footer extends React.Component {
           <div className="w-325px  margin-10px column wrap flex align-center text-center">
             <p className="body-1" style={{ color: 'gold' }}>
               Sandra L. Wilkins
-              <p className="body-2 footer-striped">Property Manager</p>
             </p>
-
+            <p className="body-2 footer-striped">Property Manager</p>
             <p className="body-1" style={{ color: 'gold' }}>
               Bonnie L. Trimble-Cushman
-              <p className="body-2 footer-striped">Office Manager</p>
             </p>
+            <p className="body-2 footer-striped">Office Manager</p>
           </div>
         </div>
 
@@ -171,15 +188,17 @@ class Footer extends React.Component {
 }
 const mapDispatchToProps = dispatch => ({
   alertInteraction: () => dispatch(alertInteraction(false)),
-  sendMessage: message => dispatch(sendMessage(message))
+  sendMessage: message => dispatch(sendMessage(message)),
+  getFooterCoords: footerCoords => dispatch(getFooterCoords(footerCoords))
 });
 
 const mapStateToProps = state => ({
   phone: state.init.phone,
-  company: state.init.company
+  company: state.init.company,
+  footerCoords: state.util.footerCoords
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Footer);
+)(Footer))

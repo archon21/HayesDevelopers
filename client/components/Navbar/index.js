@@ -17,20 +17,22 @@ class Navbar extends Component {
     this.setState({ selectedLink });
   }
 
+
   toggleNavH = () => {
     const open = !this.state.open;
     this.setState({ open });
   };
 
-  // openContact = () => {
-  //   this.props.alertInteraction(true, <Contact />);
-  // };
+  openContact = () => {
+
+    window.scrollTo(0, this.props.footerCoords - 100);
+    this.setState({open: true})
+  };
 
   selectLink = link => {
-    console.log(link);
-    this.setState({ selectedLink: link, open: true });
-  }
 
+    this.setState({ selectedLink: link, open: true });
+  };
 
   render() {
     const { open, selectedLink } = this.state;
@@ -38,12 +40,18 @@ class Navbar extends Component {
       <nav id="nav-h" className="flex column black align-center">
         <div className="nav-h__upper flex row items-center">
           <NavHButton open={open} toggleNavH={this.toggleNavH} />
-          <Link to={{pathname: '/'}}>
-          <img src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Logos%2FLogo%20Large%20White.png?alt=media&token=7109b6eb-0243-41fe-88e4-9bd80693679b" className="nav__logo" />
+          <Link to={{ pathname: '/' }}>
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Logos%2FLogo%20Large%20White.png?alt=media&token=7109b6eb-0243-41fe-88e4-9bd80693679b"
+              className="nav__logo"
+            />
           </Link>
         </div>
 
-        <div className={` ${!open && 'open'} nav-h__lower flex row wrap align-center justify-center nav-h__links `}>
+        <div
+          className={` ${!open &&
+            'open'} nav-h__lower flex row wrap align-center justify-center nav-h__links `}
+        >
           <Link
             className={`nav__link headline-6 color-white p-5px ${selectedLink ===
               'about' && 'selected'}`}
@@ -109,9 +117,13 @@ const mapDispatchToProps = dispatch => ({
     dispatch(alertInteraction(status, template))
 });
 
+const mapStateToProps = state => ({
+  footerCoords: state.util.footerCoords
+});
+
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(Navbar)
 );

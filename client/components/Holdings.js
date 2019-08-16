@@ -140,6 +140,7 @@ class Holdings extends Component {
                   {citys.map(city => {
                     return (
                       <div
+                        key={city}
                         className="body-1 menu-item"
                         onClick={() => this.filter('city', city)}
                       >

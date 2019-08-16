@@ -50,7 +50,7 @@ class Home extends Component {
     } = this;
     const { charities, sporting } = props;
     const { scrolled } = state;
-    console.log(aboutBlock);
+
     return (
       <div style={{ overflowX: 'hidden' }} className="flex column align-center">
         <WindoW video>

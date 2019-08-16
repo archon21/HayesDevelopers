@@ -29,7 +29,7 @@ class SinglePage extends Component {
           ? 'developments'
           : 'properties';
 
-      console.log(this.props.holdings, type, target);
+
       const holding = this.props.holdings[type][target];
 
       this.setState({ holding });

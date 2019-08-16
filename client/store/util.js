@@ -3,12 +3,15 @@ import { axiosWrapper } from '../utilities/axios';
 import React from 'react';
 const postUrl = `https://archon-mail.herokuapp.com/api/send`;
 const localUrl = 'http://localhost:8081/api/send';
+
 const ALERT_INTERACTION = 'ALERT_INTERACTION';
 const SENT_MESSAGE = 'SENT_MESSAGE';
+const GOT_FOOTER_COORDS = 'GOT_FOOTER_COORDS'
 
 const defaultState = {
   alertStatus: false,
-  alertTemplate: null
+  alertTemplate: null,
+  footerCoords: null
 };
 
 const alertInteracted = (status, template, customStyles) => ({
@@ -28,13 +31,25 @@ export const alertInteraction = (
 
 const sentMessage = message => ({ type: SENT_MESSAGE, message });
 
+const gotFooterCoords = footerCoords => ({
+  type: GOT_FOOTER_COORDS,
+  footerCoords
+});
+
 export const sendMessage = message => dispatch => {
   try {
-    axiosWrapper('post', `send`, {...message, to: 'info@hayesdevelopers.com'} );
+    axiosWrapper('post', `send`, {
+      ...message,
+      to: 'info@hayesdevelopers.com'
+    });
     dispatch(sentMessage(message));
   } catch (err) {
     console.error(err);
   }
+};
+
+export const getFooterCoords = footerCoords => dispatch => {
+  dispatch(gotFooterCoords(footerCoords));
 };
 
 export default function(state = defaultState, action) {
@@ -48,6 +63,11 @@ export default function(state = defaultState, action) {
       };
     case SENT_MESSAGE:
       return { ...state, message: action.message };
+    case GOT_FOOTER_COORDS:
+      return {
+        ...state,
+        footerCoords: action.footerCoords
+      }
     default:
       return state;
   }
