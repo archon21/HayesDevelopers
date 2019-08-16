@@ -121,6 +121,37 @@ class Holdings extends Component {
       mounted,
       filterStatus
     } = this.state;
+    const selectedHoldings =
+      filter === '' ? holdingsToRenderInitial : holdingsToRender;
+    const hayesProperties = [];
+    const basserProperties = [];
+    Object.entries(selectedHoldings).forEach((entry, index) => {
+      const holdingId = entry[0];
+      const holding = entry[1];
+      if (holding.owner === 'Hayes Developers') {
+        hayesProperties.push(
+          <HoldingCard
+            key={holdingId}
+            holding={holding}
+            page={page}
+            pathname={pathname}
+            index={index}
+            holdingId={holdingId}
+          />
+        );
+      } else {
+        basserProperties.push(
+          <HoldingCard
+            key={holdingId}
+            holding={holding}
+            page={page}
+            pathname={pathname}
+            index={index}
+            holdingId={holdingId}
+          />
+        );
+      }
+    });
 
     return mounted ? (
       <div>
@@ -153,9 +184,51 @@ class Holdings extends Component {
             </Flex>
           </Flex>
         </Divider>
-        <WindoW row background="background-secondary">
-          <hr />
-          {/* {filter === '' && (
+        <WindoW align="align-start" background="background-secondary">
+          {filterStatus ? (
+            <div className="flex column align-center w-100 h-100">
+              {hayesProperties.length > 0 && (
+                 <Divider color="color-secondary" backgroundColor="background-primary">
+                 <h4 className="headline-4">Hayes Developers</h4>
+                 </Divider>
+              )}
+              <div className="flex row align-center w-100 h-100 wrap">
+                {hayesProperties}
+              </div>
+              {basserProperties.length > 0 && (
+                <Divider color="color-secondary" backgroundColor="background-primary">
+                  <h4 className="headline-4">Hayes-Kaufman</h4>
+                </Divider>
+              )}
+              <div className="flex row align-center w-100 h-100 wrap">
+                {basserProperties}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <h4 className="headline-4">Sorry...</h4>
+
+              <p className="body-1">
+                Seems there were no matches to the filter you applied.
+              </p>
+            </div>
+          )}
+        </WindoW>
+      </div>
+    ) : (
+      <Loader />
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  holdings: state.firebase.holdings
+});
+
+export default connect(mapStateToProps)(Holdings);
+
+{
+  /* {filter === '' && (
               <div className="flex row wrap w-100 align-center">
                 <HoldingCard
                   holding={holdingsToRender[4]}
@@ -189,45 +262,5 @@ class Holdings extends Component {
                   />
                 </div>
               </div>
-            )} */}
-          {filterStatus ? (
-            <div className="flex row align-center w-100 h-100 wrap">
-              {Object.entries(
-                filter === '' ? holdingsToRenderInitial : holdingsToRender
-              ).map((entry, index) => {
-                const holdingId = entry[0];
-                const holding = entry[1];
-                return (
-                  <HoldingCard
-                    key={holdingId}
-                    holding={holding}
-                    page={page}
-                    pathname={pathname}
-                    index={index}
-                    holdingId={holdingId}
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            <div>
-              <h4 className="headline-4">Sorry...</h4>
-
-              <p className="body-1">
-                Seems there were no matches to the filter you applied.
-              </p>
-            </div>
-          )}
-        </WindoW>
-      </div>
-    ) : (
-      <Loader />
-    );
-  }
+            )} */
 }
-
-const mapStateToProps = state => ({
-  holdings: state.firebase.holdings
-});
-
-export default connect(mapStateToProps)(Holdings);
