@@ -3,7 +3,6 @@ import { Link, withRouter } from 'react-router-dom';
 import NavHButton from './NavHButton';
 import { alertInteraction } from '../../store';
 import { connect } from 'react-redux';
-import Contact from '../Contact';
 
 class Navbar extends Component {
   state = {
@@ -23,9 +22,9 @@ class Navbar extends Component {
     this.setState({ open });
   };
 
-  openContact = () => {
-    this.props.alertInteraction(true, <Contact />);
-  };
+  // openContact = () => {
+  //   this.props.alertInteraction(true, <Contact />);
+  // };
 
   selectLink = link => {
     console.log(link);

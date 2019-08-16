@@ -5,9 +5,8 @@
   bottom: 0;
   left: 0;
   min-height: 276px;
-  padding: 20px 5px 5px;
   width: 100vw;
-  border-top: 5px solid gold;
+  border-top: 10px solid #014085;
   z-index: 10;
 }
 
@@ -21,6 +20,30 @@
   color: white;
   font-family: 'Questrial', sans-serif;
   font-size: 2em;
+}
+
+.footer__contact {
+  background-color: rgb(1, 145, 240);
+  width: 100%;
+  padding: 20px 5px 5px;
+  border-bottom: 5px solid gold;
+}
+.footer__contact__textfield {
+  width: 325px;
+}
+.footer__contact__textfield div {
+  background: white;
+  border-radius: 5px;
+  color: #014085;
+}
+.footer__textarea {
+  width: 90%;
+  height: auto;
+}
+.footer__textarea div:first-child {
+  height: 325px;
+}
+.footer__inner {
 }
 
 #footer-name-container {
@@ -63,7 +86,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-  body #footer-container {
+  body #footer {
     height: auto;
     flex-direction: column;
   }
@@ -78,7 +101,7 @@
     text-align: center;
     margin-top: 0;
   }
-  #footer-container__inner {
+  .footer__inner {
     flex-direction: column;
   }
 }
