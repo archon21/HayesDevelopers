@@ -68,10 +68,14 @@ class Holdings extends Component {
     const target = targetArr[targetArr.length - 1];
 
     if (target === 'opportunities') {
-      const leasable = [];
-      const reducer = property => property.leasable && leasable.push(property);
-      Object.values(holdings.properties).forEach(property => reducer(property));
+      const leasable = {};
+      const reducer = holding => {
+        if (holding[1].leasable) leasable[holding[0]] = holding[1];
+      };
+      Object.entries(holdings.properties).forEach(holding => reducer(holding));
       this.setState({
+        filter: '',
+        filterStatus: true,
         page: 'Leasing Opportunities',
         holdingsToRender: leasable,
         holdingsToRenderInitial: leasable,
@@ -80,6 +84,8 @@ class Holdings extends Component {
       });
     } else if (target === 'all-properties') {
       this.setState({
+        filter: '',
+        filterStatus: true,
         page: 'All Properties',
         holdingsToRender: holdings.properties,
         holdingsToRenderInitial: holdings.properties,
@@ -88,6 +94,8 @@ class Holdings extends Component {
       });
     } else {
       this.setState({
+        filter: '',
+        filterStatus: true,
         page: 'Developments',
         holdingsToRender:
           holdings[target === 'development' ? 'developments' : target],

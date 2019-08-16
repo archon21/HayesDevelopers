@@ -147,7 +147,7 @@ class SinglePage extends Component {
           <h1 className="headline-4">{holding.name}</h1>
         </Divider>
         <hr />
-        <WindoW column backgroundUrl={holding.image}>
+        <WindoW column background="background-secondary">
           <Carousel
             primary={holding.name}
             items={holding.imageArr}
