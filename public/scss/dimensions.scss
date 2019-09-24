@@ -23,6 +23,9 @@
   .minh-#{$maxVal}px {
     min-height: $maxVal + px;
   }
+  .h-#{$maxVal}px {
+    height: $maxVal + px;
+  }
 }
 
 .h-100 {

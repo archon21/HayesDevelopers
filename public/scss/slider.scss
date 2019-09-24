@@ -17,15 +17,27 @@
     }
   }
 
+  .slider__inner__container {
+      cursor: pointer;
+  }
+
   .slider__inner__container__img{
     width: 250px;
     object-fit: contain;
     margin: 0 30px;
     left: 0;
     top: 0;
+
   }
 
 
 .slider--stop {
     animation-play-state:paused;
+}
+
+.slider__inner__container--decorated {
+    background: $color-primary;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.12) 0px 2px 10px 0px;
 }

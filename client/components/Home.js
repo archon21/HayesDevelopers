@@ -223,6 +223,8 @@ class Home extends Component {
           backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/newington-cvs%2FIMG_5701.JPG?alt=media&token=2cad2089-cd56-4c53-b2b0-5cf4f1aaa879"
         >
           <Slide
+            decorated
+            height="h-350px"
             items={[
               {
                 text: 'Connecticut General Assembly',
