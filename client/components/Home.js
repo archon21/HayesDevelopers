@@ -9,7 +9,7 @@ import {
   Divider,
   Animator
 } from '../sub-components/containers';
-import { Video, Fab, List, Table, Carousel } from '../sub-components';
+import { Video, Fab, List, Table, Carousel, Slide } from '../sub-components';
 
 class Home extends Component {
   state = {
@@ -222,70 +222,28 @@ class Home extends Component {
           column={true}
           backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/newington-cvs%2FIMG_5701.JPG?alt=media&token=2cad2089-cd56-4c53-b2b0-5cf4f1aaa879"
         >
-          <Flex column>
-            <Animator
-              inRef={carousel}
-              scrolled={scrolled}
-              animation="a-wrapper--opacity"
-              maxHeight="maxh-400px"
-              maxWidth="maxw-400px"
-            >
-              <Carousel
-                contain
-                maxHeight="maxh-400px"
-                items={[
-                  {
-                    primary: 'Connecticut General Assembly',
-                    image:
-                      'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGeneralAssembly1999.jpg?alt=media&token=4b1672b6-3c20-4478-bc86-40188c4d2ecd'
-                  },
-                  {
-                    primary: 'Ground Breaking, Fenn Road Plaza',
-                    image:
-                      'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGroundbreakingFennRdNewington1992.jpg?alt=media&token=30b57496-f2cf-447c-b4f0-add9c3585caf'
-                  },
-                  {
-                    primary: 'East Catholic High School',
-                    image:
-                      'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FECHS1986.jpg?alt=media&token=289c1ccf-a773-4d2b-8d48-efd2e0ec67f8'
-                  },
-                  {
-                    primary:
-                      'Newington Chambeer of Commerce, Beautification Award',
-                    image:
-                      'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonBeautificationAward1999.jpg?alt=media&token=c1aefb84-224c-4eec-865c-c9618b051ca2'
-                  },
-                  {
-                    image:
-                      'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonTownCouncil1999.jpg?alt=media&token=abfa7003-daee-4273-9f5a-f5e8c843094e'
-                  }
-                ]}
-              />
-            </Animator>
-          </Flex>
+          <Slide
+            items={[
+              'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGeneralAssembly1999.jpg?alt=media&token=4b1672b6-3c20-4478-bc86-40188c4d2ecd',
+              'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGroundbreakingFennRdNewington1992.jpg?alt=media&token=30b57496-f2cf-447c-b4f0-add9c3585caf',
+              'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FECHS1986.jpg?alt=media&token=289c1ccf-a773-4d2b-8d48-efd2e0ec67f8',
+              'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonBeautificationAward1999.jpg?alt=media&token=c1aefb84-224c-4eec-865c-c9618b051ca2',
+              'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonTownCouncil1999.jpg?alt=media&token=abfa7003-daee-4273-9f5a-f5e8c843094e'
+            ]}
+          />
           <Divider color="color-white" backgroundColor="background-primary">
             <h4 className="headline-4">
               We Have Also Developed for the Following Companies
             </h4>
           </Divider>
-          <div className="home__logos flex row align-center w-100">
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fwendies.png?alt=media&token=4dae5834-46e2-4341-b5e2-7ad31602b45c"
-              className="home__logos__img"
-            />
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fmcdonalds.jpeg?alt=media&token=df0c3768-8a0d-4f36-b3fb-b4be0a3dc4a5"
-              className="home__logos__img"
-            />
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fxtra.jpeg?alt=media&token=d68e925d-3511-472f-876c-55810c9a6854"
-              className="home__logos__img"
-            />
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fdownload%20(2).png?alt=media&token=8ced3483-8183-4730-934c-d8ffd2ac230d"
-              className="home__logos__img"
-            />
-          </div>
+          <Slide
+            items={[
+              'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fwendies.png?alt=media&token=4dae5834-46e2-4341-b5e2-7ad31602b45c',
+              'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fmcdonalds.jpeg?alt=media&token=df0c3768-8a0d-4f36-b3fb-b4be0a3dc4a5',
+              'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fxtra.jpeg?alt=media&token=d68e925d-3511-472f-876c-55810c9a6854',
+              'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fdownload%20(2).png?alt=media&token=8ced3483-8183-4730-934c-d8ffd2ac230d'
+            ]}
+          />
         </WindoW>
       </div>
     );

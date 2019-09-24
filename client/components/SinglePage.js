@@ -163,9 +163,10 @@ class SinglePage extends Component {
           <Carousel
             primary={holding.name}
             items={holding.imageArr}
-            maxHeight="maxh-450px"
+
             maxWidth="maxw-900px"
             backgroundColor="background-primary"
+            height="h-500px"
           />
           <Flex column width="w-auto">
             <Flex maxWidth="maxw-100" style={{ overflowY: 'hidden' }}>
