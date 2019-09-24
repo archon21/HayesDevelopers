@@ -11,6 +11,7 @@ import {
 
 import { connect } from 'react-redux';
 import { alertInteraction, sendMessage } from '../store';
+import HoldingForm from './HoldingForm';
 
 class SinglePage extends Component {
   state = {
@@ -37,20 +38,10 @@ class SinglePage extends Component {
   }
 
   handleChange = event => {
+
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSend = () => {
-    const { email, holding } = this.state;
-    this.props.sendMessage({
-      email,
-      name: 'None',
-      message: `Interest in ${holding.name} from ${email}: Quick send from actual property page.`,
-      phone: 'none',
-      subject: 'Quick contact'
-    });
-    this.props.alertInteraction(false);
-  };
 
   selectImage = index => {
     const { holding } = this.state;
@@ -77,6 +68,7 @@ class SinglePage extends Component {
         </Divider>
         <hr />
         <WindoW column background="background-secondary">
+        <Flex column width="w-90">
           <Carousel
             primary={holding.name}
             items={holding.imageArr}
@@ -84,6 +76,7 @@ class SinglePage extends Component {
             backgroundColor="background-primary"
             height="h-500px"
           />
+        </Flex>
           <Flex column width="w-auto">
             <Flex maxWidth="maxw-100" style={{ overflowY: 'hidden' }}>
               {holding.imageArr.map((image, index) => {
@@ -115,41 +108,7 @@ class SinglePage extends Component {
                 onClick={() =>
                   this.props.alertInteraction(
                     true,
-                    <Block
-                      column
-                      type="info-card"
-                      backgroundColor="background-secondary"
-                      color="color-primary"
-                      maxHeight="maxh-450px"
-                      maxWidth="maxw-450px"
-                    >
-                      <div className="flex row align-center justify-center">
-                        <button
-                          type="button"
-                          onClick={() => this.props.alertInteraction(false)}
-                          className="small-icon rounded material-icons"
-                        >
-                          close
-                        </button>
-                        <h6 className="headline-4 color-primary">
-                          Just add your Email.
-                        </h6>
-                      </div>
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        name="email"
-                        className="textfield"
-                        handleChange={this.handleChange}
-                      />
-                      <button
-                        onClick={this.handleSend}
-                        className="button"
-                        type="submit"
-                      >
-                        Send
-                      </button>
-                    </Block>
+                    <HoldingForm holding={holding} />
                   )
                 }
                 className="button large"
@@ -219,7 +178,7 @@ class SinglePage extends Component {
               </Block>
             )}
 
-            <div className="single-view-map m-30px">
+            <div className="single-view-map ">
               <MapContainer
                 coords={holding.coords}
                 name={holding.name}

@@ -107,6 +107,19 @@
 .nav-h__links a {
   font-size: 0;
   transition: font-size 0s;
+  display: none;
+}
+
+.nav-h__links h1 {
+  font-size: 0;
+  transition: font-size 0s;
+  display: none;
+}
+
+.nav-h__links.open h1 {
+  font-size: 20px;
+  transition: font-size 0s;
+  display: inline;
 }
 
 .open {
@@ -119,6 +132,7 @@
 .nav-h__links.open a {
   font-size: 20px;
   transition: font-size 0s;
+  display: inline;
 }
 
 .nav__link {

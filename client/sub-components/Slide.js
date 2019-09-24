@@ -1,40 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {alertInteraction} from '../store'
-import Image from './Image'
+import { alertInteraction } from '../store';
+import Image from './Image';
 
 class Slide extends Component {
-  state = {
-    hovering: false
-  };
-
-  handleHover = enter => {
-    const newStatus = enter;
-    this.setState({ hovering: newStatus });
-  };
-
   handleOpenImage = (items, index) => {
-    this.props.alertInteraction(true, <Image index={index} items={items} />)
+    this.props.alertInteraction(true, <Image index={index} items={items} />);
   };
   render() {
     const { items, decorated, height } = this.props;
-    const { hovering } = this.state;
+
     const isArray = typeof items[0] === 'string';
     return (
-      <div
-        className="slider"
-        onMouseLeave={() => this.handleHover(false)}
-        onMouseEnter={() => this.handleHover(true)}
-      >
-        <div
-          className={`slider__inner  ${hovering &&
-            'slider--stop'}  flex row align-center w-auto my-30px`}
-        >
+      <div className="slider">
+        <div className="slider__inner  flex row align-center w-auto my-30px">
           {items.map((item, index) => {
             return (
               <div
                 onClick={() => this.handleOpenImage(items, index)}
-                className={`${height} ${decorated && 'slider__inner__container--decorated flex column align-center justify-center'} slider__inner__container mx-20px`}
+                className={`${height} ${decorated &&
+                  'slider__inner__container--decorated flex column align-center justify-center'} slider__inner__container mx-20px`}
                 key={item}
               >
                 <img
@@ -52,7 +37,6 @@ class Slide extends Component {
     );
   }
 }
-
 
 const mapDispatchToProps = dispatch => ({
   alertInteraction: (status, template) =>

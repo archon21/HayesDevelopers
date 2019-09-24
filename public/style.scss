@@ -186,7 +186,7 @@ button:focus {
   width: 500px;
   height: 500px;
   position: relative;
-  margin: 30px;
+  margin: 20px auto;
 }
 .h-400px {
   height: 400px;
@@ -213,8 +213,8 @@ background-color: rgba(1, 64, 133,.8)
 
 .single-popup-icon {
   position: absolute;
-  top: 100px;
-  left: 100px;
+  top: 0;
+  left: 0;
   font-size: 75px!important;
 }
 

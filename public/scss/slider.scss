@@ -31,8 +31,9 @@
   }
 
 
-.slider--stop {
+.slider__inner:hover {
     animation-play-state:paused;
+
 }
 
 .slider__inner__container--decorated {
