@@ -1,5 +1,6 @@
 $color-primary: #014085;
 $color-secondary: #fff;
+$color-tirciary: #fff;
 
 
 .color-primary {
@@ -17,6 +18,15 @@ $color-secondary: #fff;
  .background-secondary {
      background-color: $color-secondary;
  }
+
+ .color-tirciary {
+     color: $color-tirciary;
+ }
+
+ .background-tirciary {
+    background-color: $color-tirciary;
+}
+
 
 .color-white {
     color: #fff;

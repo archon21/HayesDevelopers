@@ -1,0 +1,31 @@
+.slider {
+    width: 100vw;
+    height: auto;
+}
+
+.slider__inner {
+    animation: moveSlideshow 10s linear infinite;
+    position: relative;
+    transform: translate3d(100%, 0, 0);
+    width: 100vw;
+
+  }
+
+  @keyframes moveSlideshow {
+    100% {
+      -webkit-transform: translateX(-100%);
+    }
+  }
+
+  .slider__inner__container__img{
+    width: 250px;
+    object-fit: contain;
+    margin: 0 30px;
+    left: 0;
+    top: 0;
+  }
+
+
+.slider--stop {
+    animation-play-state:paused;
+}

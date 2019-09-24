@@ -5,6 +5,7 @@ import {
   Carousel,
   List,
   MapContainer,
+  Image,
   Textfield
 } from '../sub-components';
 
@@ -29,7 +30,6 @@ class SinglePage extends Component {
           ? 'developments'
           : 'properties';
 
-
       const holding = this.props.holdings[type][target];
 
       this.setState({ holding });
@@ -45,101 +45,18 @@ class SinglePage extends Component {
     this.props.sendMessage({
       email,
       name: 'None',
-      message: `Interest in ${
-        holding.name
-      } from ${email}: Quick send from actual property page.`,
+      message: `Interest in ${holding.name} from ${email}: Quick send from actual property page.`,
       phone: 'none',
       subject: 'Quick contact'
     });
     this.props.alertInteraction(false);
   };
 
-  nextitem = () => {
-    const { image, holding } = this.state;
-    let newImage = 0;
-    if (image === holding.imageArr.length - 1) {
-      newImage = 0;
-    } else {
-      newImage = image + 1;
-    }
-    this.props.alertInteraction(
-      true,
-      <div className="w-100 h-100 flex column align-center justify-center relative">
-        <img
-          className="w-100 h-100 object-contain background-primary"
-          src={holding.imageArr[newImage]}
-          onClick={this.nextitem}
-        />
-          <button onClick={() => this.props.alertInteraction(false)}>
-          <i className="single-popup-icon material-icons color-white">close</i>
-          </button>
-        <div onClick={this.previtem} className="carosuel-right-button">
-          <span />
-          <span />
-        </div>
-        <div onClick={this.nextitem} className="carosuel-left-button">
-          <span />
-          <span />
-        </div>
-      </div>
-    );
-    this.setState({ image: newImage });
-  };
-
-  previtem = () => {
-    const { image, holding } = this.state;
-    let newImage = 0;
-    if (image === 0) {
-      newImage = holding.imageArr.length - 1;
-    } else {
-      newImage = image - 1;
-    }
-    this.props.alertInteraction(
-      true,
-      <div className="w-100 h-100 flex column align-center justify-center relative">
-        <img
-          className="w-100 h-100 object-contain background-primary"
-          src={holding.imageArr[newImage]}
-          onClick={this.nextitem}
-        />
-        <button onClick={() => this.props.alertInteraction(false)}>
-          <i className="single-popup-icon material-icons color-white">close</i>
-        </button>
-        <div onClick={this.previtem} className="carosuel-right-button">
-          <span />
-          <span />
-        </div>
-        <div onClick={this.nextitem} className="carosuel-left-button">
-          <span />
-          <span />
-        </div>
-      </div>
-    );
-    this.setState({ image: newImage });
-  };
-
   selectImage = index => {
     const { holding } = this.state;
     this.props.alertInteraction(
       true,
-      <div className="w-100 h-100 flex column align-center justify-center relative">
-        <img
-          className="w-100 h-100 object-contain background-primary"
-          src={holding.imageArr[index]}
-          onClick={this.nextitem}
-        />
-          <button onClick={() => this.props.alertInteraction(false)}>
-          <i className="single-popup-icon material-icons color-white">close</i>
-          </button>
-        <div onClick={this.previtem} className="carosuel-right-button">
-          <span />
-          <span />
-        </div>
-        <div onClick={this.nextitem} className="carosuel-left-button">
-          <span />
-          <span />
-        </div>
-      </div>
+      <Image items={holding.imageArr} index={index} />
     );
     this.setState({ image: index });
   };
@@ -163,7 +80,6 @@ class SinglePage extends Component {
           <Carousel
             primary={holding.name}
             items={holding.imageArr}
-
             maxWidth="maxw-900px"
             backgroundColor="background-primary"
             height="h-500px"
