@@ -88,10 +88,15 @@ const Services = () => {
             >
 
                 <h6 className="headline-6 text-center">Property Management Services</h6>
-                <p className="body-2 text-center">1471 Pleasant Valley Road <p className="body-2">Manchester, CT 06042</p></p>
+                <div className="w-100 flex column align-center">
 
-                <p className="body-2 text-center">Ph: (860) 646-0131 <p className="body-2">Fax: (860) 644-9073</p></p>
-
+                <p className="body-2 text-center">1471 Pleasant Valley Road </p>
+                <p className="body-2 text-center margin-0 padding-0">Manchester, CT 06042</p>
+                </div>
+                <div className="w-100 flex column align-center">
+                <p className="body-2 text-center">Ph: (860) 646-0131 </p>
+                <p className="body-2 text-center margin-0 padding-0">Fax: (860) 644-9073</p>
+                </div>
                 <p className="body-1 text-center">For more information about our Property Management services, please inquire below.</p>
 
             </Block>

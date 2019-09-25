@@ -113,9 +113,10 @@ class Carousel extends Component {
         </div>
         <ul className="carosuel-index">
           {items.map((item, index) => {
+
             return (
               <li
-                key={item.image}
+                key={item}
                 className={focusedIndex === index ? 'active' : null}
               />
             );

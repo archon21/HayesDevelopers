@@ -18,7 +18,7 @@ const List = props => {
             className={`${
               alternating ? assignClass(index) : 'body-1'
             } ${small ? 'body-2' : 'body-1'} ${color && color}`}
-            key={item}
+            key={`${item}-${index}`}
           >
             {item}
           </li>

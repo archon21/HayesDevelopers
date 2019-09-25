@@ -20,7 +20,7 @@ class Slide extends Component {
                 onClick={() => this.handleOpenImage(items, index)}
                 className={`${height} ${decorated &&
                   'slider__inner__container--decorated flex column align-center justify-center'} slider__inner__container mx-20px`}
-                key={item}
+                key={isArray ? item : item.img}
               >
                 <img
                   className="slider__inner__container__img"

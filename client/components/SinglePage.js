@@ -82,6 +82,7 @@ class SinglePage extends Component {
               {holding.imageArr.map((image, index) => {
                 return (
                   <div
+                   key={image}
                     className="flex column align-center justify-center carousel__image-background"
                     onClick={() => this.selectImage(index)}
                   >
