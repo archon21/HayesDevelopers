@@ -186,21 +186,27 @@ class Holdings extends Component {
         </Divider>
         <WindoW align="align-start" background="background-secondary">
           {filterStatus ? (
-            <div className="flex column align-center w-100 h-100">
+            <div className="flex column align-center w-100 h-auto">
               {hayesProperties.length > 0 && (
-                 <Divider color="color-secondary" backgroundColor="background-primary">
-                 <h4 className="headline-4">Hayes Developers</h4>
-                 </Divider>
+                <Divider
+                  color="color-secondary"
+                  backgroundColor="background-primary"
+                >
+                  <h4 className="headline-4">Hayes Developers</h4>
+                </Divider>
               )}
-              <div className="flex row align-center w-100 h-100 wrap">
+              <div className="flex row align-center w-100 h-auto wrap">
                 {hayesProperties}
               </div>
               {basserProperties.length > 0 && (
-                <Divider color="color-secondary" backgroundColor="background-primary">
+                <Divider
+                  color="color-secondary"
+                  backgroundColor="background-primary"
+                >
                   <h4 className="headline-4">Hayes-Kaufman</h4>
                 </Divider>
               )}
-              <div className="flex row align-center w-100 h-100 wrap">
+              <div className="flex row align-center w-100 h-auto wrap">
                 {basserProperties}
               </div>
             </div>
