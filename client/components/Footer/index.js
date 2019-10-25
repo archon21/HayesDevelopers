@@ -61,7 +61,7 @@ class Footer extends React.Component {
           <div className=" flex row align-center">
             <h4 className="headline-4 color-secondary">How Can We Help?</h4>
           </div>
-          <div className="flex row wrap align-center justify-space-evenly">
+          <div className="flex row wrap align-center justify-center">
             <TextField
               placeholder="Name"
               name="name"

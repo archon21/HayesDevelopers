@@ -32,16 +32,13 @@ import { mapKey } from '../../secrets';
 
 export class MapContainer extends Component {
   render() {
-    const {zoom, coords} = this.props
-    console.log(zoom)
+    const { zoom, coords } = this.props;
 
     return (
       <Map
-
         google={this.props.google}
         initialCenter={coords}
         zoom={zoom ? zoom : 18}
-
       >
         {/* <HeatMap
           gradiant={gradient}
@@ -50,14 +47,17 @@ export class MapContainer extends Component {
           radius={30}
         /> */}
 
-        <Marker position={this.props.coords} name={this.props.name} title={this.props.availabilities} />
+        <Marker
+          position={this.props.coords}
+          name={this.props.name}
+          title={this.props.availabilities}
+        />
       </Map>
     );
   }
 }
 
 export default GoogleApiWrapper({
-
   apiKey: mapKey,
-  libraries: ['visualization', 'traffic']
+  libraries: ['visualization']
 })(MapContainer);

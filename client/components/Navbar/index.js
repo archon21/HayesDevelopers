@@ -81,7 +81,7 @@ class Navbar extends Component {
             onClick={() => this.selectLink('development')}
             to={{ pathname: '/holdings/development' }}
           >
-            DEVELOPMENTS
+            DEVELOPMENT OPPORTUNITIES
           </Link>
           <Link
             className={`link__major  headline-6 color-white p-5px ${selectedLink ===
@@ -89,7 +89,7 @@ class Navbar extends Component {
             to={{ pathname: '/holdings/opportunities' }}
             onClick={() => this.selectLink('opportunities')}
           >
-            OPPORTUNITIES
+            LEASING OPPORTUNITIES
           </Link>
           <Link
             className={`link__major  headline-6 color-white p-5px ${selectedLink ===
