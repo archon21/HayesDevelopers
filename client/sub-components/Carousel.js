@@ -130,7 +130,7 @@ class Carousel extends Component {
             </div>
             <div className="carousel__inner__box__text flex column align-center">
               <span
-                className={`carousel__primary-text text-center color-white text-left ${inTransition}`}
+                className={`carousel__primary-text text-center color-white  ${inTransition}`}
               >
                 {focuseditem.primary ? focuseditem.primary : primary}
               </span>
