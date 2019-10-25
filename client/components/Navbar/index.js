@@ -17,20 +17,17 @@ class Navbar extends Component {
     this.setState({ selectedLink });
   }
 
-
   toggleNavH = () => {
     const open = !this.state.open;
     this.setState({ open });
   };
 
   openContact = () => {
-
     window.scrollTo(0, this.props.footerCoords - 100);
-    this.setState({open: true})
+    this.setState({ open: true });
   };
 
   selectLink = link => {
-
     this.setState({ selectedLink: link, open: true });
   };
 
@@ -48,12 +45,14 @@ class Navbar extends Component {
           </Link>
         </div>
 
-        <div
-          className={` ${!open &&
-            'open'} nav-h__lower flex row wrap align-center justify-center nav-h__links `}
+        <aside
+          className={` ${
+            !open ? 'aside--open ' : 'aside'
+          } flex column align-center justify-center  `}
         >
+
           <Link
-            className={`nav__link headline-6 color-white p-5px ${selectedLink ===
+            className={`link__major headline-6 color-white p-5px ${selectedLink ===
               'about' && 'selected'}`}
             to={{ pathname: '/about' }}
             onClick={() => this.selectLink('about')}
@@ -61,7 +60,7 @@ class Navbar extends Component {
             ABOUT
           </Link>
           <Link
-            className={`nav__link headline-6 color-white p-5px ${selectedLink ===
+            className={`link__major  headline-6 color-white p-5px ${selectedLink ===
               'hayes-team' && 'selected'}`}
             to={{ pathname: '/hayes-team' }}
             onClick={() => this.selectLink('hayes-team')}
@@ -69,7 +68,7 @@ class Navbar extends Component {
             THE HAYES TEAM
           </Link>
           <Link
-            className={`nav__link headline-6 color-white p-5px ${selectedLink ===
+            className={`link__major  headline-6 color-white p-5px ${selectedLink ===
               'property-services' && 'selected'}`}
             to={{ pathname: '/property-services' }}
             onClick={() => this.selectLink('property-services')}
@@ -77,7 +76,7 @@ class Navbar extends Component {
             PROPERTY MANAGEMENT
           </Link>
           <Link
-            className={` nav__link headline-6 color-white p-5px ${selectedLink ===
+            className={` link__major  headline-6 color-white p-5px ${selectedLink ===
               'development' && 'selected'}`}
             onClick={() => this.selectLink('development')}
             to={{ pathname: '/holdings/development' }}
@@ -85,7 +84,7 @@ class Navbar extends Component {
             DEVELOPMENTS
           </Link>
           <Link
-            className={`nav__link headline-6 color-white p-5px ${selectedLink ===
+            className={`link__major  headline-6 color-white p-5px ${selectedLink ===
               'opportunities' && 'selected'}`}
             to={{ pathname: '/holdings/opportunities' }}
             onClick={() => this.selectLink('opportunities')}
@@ -93,7 +92,7 @@ class Navbar extends Component {
             OPPORTUNITIES
           </Link>
           <Link
-            className={`nav__link headline-6 color-white p-5px ${selectedLink ===
+            className={`link__major  headline-6 color-white p-5px ${selectedLink ===
               'all-properties' && 'selected'}`}
             to={{ pathname: '/holdings/all-properties' }}
             onClick={() => this.selectLink('all-properties')}
@@ -101,12 +100,12 @@ class Navbar extends Component {
             ALL PROPERTIES
           </Link>
           <h1
-            className="nav__link headline-6 color-white"
+            className="link__major  headline-6 color-white"
             onClick={this.openContact}
           >
             CONTACT
           </h1>
-        </div>
+        </aside>
       </nav>
     );
   }

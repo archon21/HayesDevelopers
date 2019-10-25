@@ -32,14 +32,15 @@ import { mapKey } from '../../secrets';
 
 export class MapContainer extends Component {
   render() {
-
+    const {zoom, coords} = this.props
+    console.log(zoom)
 
     return (
       <Map
 
         google={this.props.google}
-        initialCenter={this.props.coords}
-        zoom={18}
+        initialCenter={coords}
+        zoom={zoom ? zoom : 18}
 
       >
         {/* <HeatMap

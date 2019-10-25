@@ -182,6 +182,7 @@ class SinglePage extends Component {
             <div className="single-view-map ">
               <MapContainer
                 coords={holding.coords}
+                zoom={holding.zoom}
                 name={holding.name}
                 availabilities={holding.availabilities}
               />

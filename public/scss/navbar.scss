@@ -98,12 +98,6 @@
   border: none !important;
 }
 
-.nav-h__links {
-  transition: all 0.3s;
-  height: 0;
-  z-index: -100;
-  opacity: 0;
-}
 .nav-h__links a {
   font-size: 0;
   transition: font-size 0s;
@@ -135,13 +129,13 @@
   display: inline;
 }
 
-.nav__link {
+.link__major {
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
   transition: all 0.3s;
 }
 
-.nav__link:hover {
+.link__major:hover {
   cursor: pointer;
   border-top: 2px solid $color-secondary;
   border-bottom: 2px solid $color-secondary;
