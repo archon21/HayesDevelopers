@@ -1,6 +1,7 @@
 node_modules
 public/js
 public/css
+public/sitemap.xml
 secrets.js
 dist
 
@@ -9,4 +10,4 @@ dist
 firebase.json
 firestore.rules
 firebase.indexes.json
- 
+
