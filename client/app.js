@@ -53,7 +53,7 @@ class App extends Component {
           onClickCatcher={() => this.props.alertInteraction(false)}
         />
         <Navbar />
-        <div style={{ margin: '80px 0 0 0' }}>
+        <div style={{ margin: '60px 0 0 0' }}>
           <Routes />
         </div>
         <Footer />

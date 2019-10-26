@@ -35,22 +35,19 @@ class Navbar extends Component {
     const { open, selectedLink } = this.state;
     return (
       <nav id="nav-h" className="flex column black align-center">
-        <div className="nav-h__upper flex row items-center">
-          <NavHButton open={open} toggleNavH={this.toggleNavH} />
-          <Link to={{ pathname: '/' }}>
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Logos%2FLogo%20Large%20White.png?alt=media&token=7109b6eb-0243-41fe-88e4-9bd80693679b"
-              className="nav__logo"
-            />
-          </Link>
-        </div>
+        <NavHButton open={open} toggleNavH={this.toggleNavH} />
+        <Link to={{ pathname: '/' }}>
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Logos%2FLogo%20Large%20White.png?alt=media&token=7109b6eb-0243-41fe-88e4-9bd80693679b"
+            className="nav__logo"
+          />
+        </Link>
 
         <aside
           className={` ${
             !open ? 'aside--open ' : 'aside'
           } flex column align-center justify-center  `}
         >
-
           <Link
             className={`link__major headline-6 color-white p-5px ${selectedLink ===
               'about' && 'selected'}`}
@@ -105,6 +102,14 @@ class Navbar extends Component {
           >
             CONTACT
           </h1>
+          <div className="flex column wrap my-20px text-center">
+            <p className="body-1 color-tirciary my-5px padding-0">
+              <b> Ph: (860) 646-0131</b>
+            </p>
+            <p className="body-1 color-tirciary margin-0 padding-0">
+              <b>Fax: (860) 644-9073</b>
+            </p>
+          </div>
         </aside>
       </nav>
     );
