@@ -19,7 +19,6 @@ class Footer extends React.Component {
   footer = React.createRef();
 
   componentDidMount() {
-
     setTimeout(() => {
       this.props.getFooterCoords(
         this.footer.current && this.footer.current.offsetTop
@@ -27,7 +26,6 @@ class Footer extends React.Component {
     }, 500);
   }
   componentDidUpdate() {
-
     this.footer.current &&
       this.footer.current.offsetTop !== this.props.footerCoords &&
       this.props.getFooterCoords(this.footer.current.offsetTop);
@@ -124,36 +122,52 @@ class Footer extends React.Component {
 
         <div className="footer__inner flex row wrap items-start justify-center align-center my-10px">
           <div className="w-325px column wrap align-center text-center flex margin-10px">
-            <p className="body-1" style={{ color: 'gold' }}>
-              Richard P. Hayes, Sr.
-            </p>
-            <p className="body-2 footer-striped">Principal</p>
-            <p className="body-1" style={{ color: 'gold' }}>
-              Richard P. Hayes, Jr.{' '}
-            </p>
-            <p className="body-2 footer-striped">Principal</p>
+            <div className="flex column my-15px align-center">
+              <p className="body-1 margin-0" style={{ color: 'gold' }}>
+                Richard P. Hayes, Sr.
+              </p>
+              <p className="body-2 margin-0 footer-striped">Principal</p>
+            </div>
+            <div className="flex column my-15px align-center">
+              <p className="body-1 margin-0 " style={{ color: 'gold' }}>
+                Richard P. Hayes, Jr.{' '}
+              </p>
+              <p className="body-2 margin-0  footer-striped">Principal</p>
+            </div>
           </div>
 
           <div className="w-325px flex column wrap align-center">
             <h1 id="info-block">Hayes Developers</h1>
 
-            <div className=" margin-10px flex column wrap text-center">
-              <p className="headline-5">1471 Pleasant Valley Road</p>
-              <p className="body-1"> Manchester, CT 06042</p>
+            <div className=" my-10px flex column wrap text-center">
+              <p className="headline-5 margin-0 padding-0">
+                1471 Pleasant Valley Road
+              </p>
+              <p className="body-1 margin-0 padding-0"> Manchester, CT 06042</p>
             </div>
-            <div className="flex column wrap margin-10px text-center">
-              <p>Ph: (860) 646-0131</p> <p>Fax: (860) 644-9073</p>
+            <div className="flex column wrap my-10px text-center">
+              <p className="body-1 margin-0 padding-0">
+                <b> Ph: (860) 646-0131</b>
+              </p>
+              <p className="body-1 margin-0 padding-0">
+                <b>Fax: (860) 644-9073</b>
+              </p>
             </div>
           </div>
+
           <div className="w-325px  margin-10px column wrap flex align-center text-center">
-            <p className="body-1" style={{ color: 'gold' }}>
-              Sandra L. Wilkins
-            </p>
-            <p className="body-2 footer-striped">Property Manager</p>
-            <p className="body-1" style={{ color: 'gold' }}>
-              Bonnie L. Trimble-Cushman
-            </p>
-            <p className="body-2 footer-striped">Office Manager</p>
+            <div className="flex column my-15px align-center">
+              <p className="body-1 margin-0 " style={{ color: 'gold' }}>
+                Sandra L. Wilkins
+              </p>
+              <p className="body-2 margin-0  footer-striped">Property Manager</p>
+            </div>
+            <div className="flex column my-15px align-center">
+              <p className="body-1 margin-0 " style={{ color: 'gold' }}>
+                Bonnie L. Trimble-Cushman
+              </p>
+              <p className="body-2 margin-0  footer-striped">Office Manager</p>
+            </div>
           </div>
         </div>
 
@@ -198,7 +212,9 @@ const mapStateToProps = state => ({
   footerCoords: state.util.footerCoords
 });
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Footer))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Footer)
+);
