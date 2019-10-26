@@ -6,8 +6,13 @@ class Carousel extends Component {
     focuseditem: this.props.items[0],
     focusedIndex: 0,
     inTransition: 'no-transition',
-    touchEvent: [false, 0]
+    touchEvent: [false, 0],
+    messageTimer: null
   };
+
+  componentWillUnmount() {
+    clearTimeout(this.state.timer);
+  }
 
   handleLoad = () => {
     this.setState({
@@ -24,13 +29,15 @@ class Carousel extends Component {
       if (focusedIndex === items.length - 1) {
         this.setState({
           focuseditem: items[0],
-          focusedIndex: 0
+          focusedIndex: 0,
+          touchEvent: [false, 0]
         });
       } else {
         const newIndex = focusedIndex + 1;
         this.setState({
           focusedIndex: newIndex,
-          focuseditem: items[newIndex]
+          focuseditem: items[newIndex],
+          touchEvent: [false, 0]
         });
       }
     }, 800);
@@ -45,13 +52,15 @@ class Carousel extends Component {
       if (focusedIndex === 0) {
         this.setState({
           focuseditem: items[items.length - 1],
-          focusedIndex: items.length - 1
+          focusedIndex: items.length - 1,
+          touchEvent: [false, 0]
         });
       } else {
         const newIndex = focusedIndex - 1;
         this.setState({
           focusedIndex: newIndex,
-          focuseditem: items[newIndex]
+          focuseditem: items[newIndex],
+          touchEvent: [false, 0]
         });
       }
     }, 800);
@@ -72,14 +81,31 @@ class Carousel extends Component {
     if (event.changedTouches && !touchEvent[0]) {
       this.setState({ touchEvent: [true, event.changedTouches[0].screenX] });
     } else if (event.changedTouches && touchEvent[0]) {
-      event.changedTouches[0].screenX > touchEvent[1]
-        ? this.previtem()
-        : this.nextitem();
+      console.log(event.changedTouches[0].screenX, touchEvent[1]);
+      if (event.changedTouches[0].screenX > touchEvent[1] + 60) {
+        this.previtem();
+      } else if (event.changedTouches[0].screenX < touchEvent[1] - 60) {
+        this.nextitem();
+      } else {
+        this.handleTouchMessage();
+      }
     }
   };
 
+  handleTouchMessage() {
+    const timer = setTimeout(() => {
+      this.setState({ messageTimer: false });
+    }, 1000);
+    this.setState({ timer, messageTimer: true });
+  }
+
   render() {
-    const { focuseditem, inTransition, focusedIndex } = this.state;
+    const {
+      focuseditem,
+      inTransition,
+      focusedIndex,
+      messageTimer
+    } = this.state;
     const {
       items,
       contain,
@@ -94,7 +120,9 @@ class Carousel extends Component {
     } = this.props;
     return (
       <div
-        className={`carousel   my-75px ${backgroundColor}
+        className={`carousel   my-75px
+
+        ${backgroundColor}
         ${width ? width : 'w-100'}
         ${maxWidth ? maxWidth : 'maxw-100vw'}
         ${minWidth ? minWidth : 'minw-325px'} ${height ? height : 'h-100'}
@@ -107,6 +135,13 @@ class Carousel extends Component {
           className={`${contain &&
             'background-primary'} carousel__inner w-100 h-100 background-primary`}
         >
+          {messageTimer && (
+            <div className="carousel__message flex column align-center justify-center">
+              <span className="headline-5 color-white">
+                Swipe to navigate Carousel
+              </span>
+            </div>
+          )}
           <img
             style={{
               top: 0,
