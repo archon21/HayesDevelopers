@@ -5,6 +5,12 @@ class Fab extends Component {
     isOptionHover: {}
   };
 
+  componentDidMount() {
+
+  }
+
+
+
   optionHover = index => {
     const { isOptionHover } = this.state;
     const currOption = !isOptionHover[index];
@@ -41,7 +47,7 @@ class Fab extends Component {
                   <i
                     onMouseLeave={() => this.optionHover(index)}
                     onMouseEnter={() => this.optionHover(index)}
-                    className="material-icons"
+                    className='material-icons'
                   >
                     {option.name}
                   </i>

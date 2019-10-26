@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CarouselKeys from './CarouselKeys';
 
 class Carousel extends Component {
   state = {
@@ -57,7 +58,7 @@ class Carousel extends Component {
   };
 
   selectItem = (event, index) => {
-    event.preventDefault()
+    event.preventDefault();
     const { items } = this.props;
     this.setState({ inTransition: 'transition' });
     setTimeout(() => {
@@ -66,7 +67,6 @@ class Carousel extends Component {
   };
 
   handleSlide = event => {
-    console.log(this.state)
     event.preventDefault();
     const { touchEvent } = this.state;
     if (event.changedTouches && !touchEvent[0]) {
@@ -151,17 +151,11 @@ class Carousel extends Component {
           </div>
         </div>
 
-        <ul className="carousel__inner__keys">
-          {items.map((item, index) => {
-            return (
-              <li
-                key={item.image}
-                onClick={event => this.selectItem(event, index)}
-                className={`carousel__inner__keys__index ${focusedIndex === index ? 'active' : null}`}
-              />
-            );
-          })}
-        </ul>
+        <CarouselKeys
+          items={items}
+          focusedIndex={focusedIndex}
+          selectItem={this.selectItem}
+        />
       </div>
     );
   }

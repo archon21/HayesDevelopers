@@ -5,6 +5,7 @@ import { Navbar, Footer } from './components';
 import Routes from './routes';
 import { willReadDB, alertInteraction } from './store';
 import { Alert, Loader, Fab } from './sub-components';
+import init from './utilities/init';
 
 // const firestore = firebase.firestore();
 
@@ -13,6 +14,7 @@ class App extends Component {
     mounted: false
   };
   async componentDidMount() {
+    init.start();
     await this.props.willReadDB('all');
     this.setState({ mounted: true });
   }

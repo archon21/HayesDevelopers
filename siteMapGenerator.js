@@ -47,7 +47,6 @@ const generateSitemap = async () => {
     ];
     const dynamicPaths = applyParams(paths, config);
     const sitemap = buildSitemap(hostname, [...staticPaths, ...dynamicPaths]);
-    console.log(sitemap.toString());
     fs.writeFile('./public/sitemap.xml', sitemap.toString(), err => {
       console.error(err);
     });
