@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import { withRouter, Route, Switch } from 'react-router-dom';
-import { Home, Info, SinglePage, Holdings, LandingCarousel, Services } from './components';
+import {
+  Home,
+  Info,
+  SinglePage,
+  Holdings,
+  LandingCarousel,
+  Services
+} from './components';
 import { NotFound, Loader } from './sub-components';
-import Privacy from './components/Footer/Privacy'
+import Privacy from './components/Footer/Privacy';
 class Routes extends Component {
   state = { mounted: false };
   componentDidMount() {
     this.setState({ mounted: true });
-
   }
 
-  componentDidUpdate() {
-    window.scrollTo(0, 0)
+  componentDidUpdate(prevProps) {
+    if (prevProps) {
+      if (this.props.location.pathname !== prevProps.location.pathname) {
+        window.scrollTo(0, 0);
+      }
+    }
   }
   render() {
     const { mounted } = this.state;
@@ -32,4 +42,4 @@ class Routes extends Component {
   }
 }
 
-export default Routes;
+export default withRouter(Routes)

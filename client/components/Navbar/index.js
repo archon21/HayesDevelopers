@@ -42,7 +42,10 @@ class Navbar extends Component {
             className="nav__logo"
           />
         </Link>
-
+        <div
+          onClick={this.toggleNavH}
+          className={` ${!open && 'aside__click-catcher'} `}
+        />
         <aside
           className={` ${
             !open ? 'aside--open ' : 'aside'
@@ -125,9 +128,4 @@ const mapStateToProps = state => ({
   footerCoords: state.util.footerCoords
 });
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Navbar)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));

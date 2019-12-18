@@ -81,7 +81,6 @@ class Carousel extends Component {
     if (event.changedTouches && !touchEvent[0]) {
       this.setState({ touchEvent: [true, event.changedTouches[0].screenX] });
     } else if (event.changedTouches && touchEvent[0]) {
-      console.log(event.changedTouches[0].screenX, touchEvent[1]);
       if (event.changedTouches[0].screenX > touchEvent[1] + 60) {
         this.previtem();
       } else if (event.changedTouches[0].screenX < touchEvent[1] - 60) {

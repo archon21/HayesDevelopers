@@ -70,6 +70,7 @@ module.exports = () => ({
   //   ]
   // },
   plugins: [
+    new BundleAnalyzerPlugin(),
     //   // new CleanWebpackPlugin('dist', {}),
     new MiniCssExtractPlugin({ filename: 'css/style.css' })
   ]

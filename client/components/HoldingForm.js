@@ -9,7 +9,6 @@ class HoldingForm extends Component {
   };
 
   handleChange = event => {
-      console.log(event.target.value)
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -39,7 +38,7 @@ class HoldingForm extends Component {
       >
         <div className="flex row align-center justify-center">
           <button
-            style={{background: 'white'}}
+            style={{ background: 'white' }}
             type="button"
             onClick={() => this.props.alertInteraction(false)}
             className="small-icon rounded material-icons"

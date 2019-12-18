@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
+import { connect } from 'react-redux';
+
 import { WindoW, Divider, Flex, Block } from '../sub-components/containers';
 import {
   Loader,
@@ -8,8 +11,6 @@ import {
   Image,
   Textfield
 } from '../sub-components';
-
-import { connect } from 'react-redux';
 import { alertInteraction, sendMessage } from '../store';
 import HoldingForm from './HoldingForm';
 
@@ -38,10 +39,8 @@ class SinglePage extends Component {
   }
 
   handleChange = event => {
-
     this.setState({ [event.target.name]: event.target.value });
   };
-
 
   selectImage = index => {
     const { holding } = this.state;
@@ -55,6 +54,12 @@ class SinglePage extends Component {
     const { holding, image } = this.state;
     return holding ? (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{holding.name}</title>
+          <meta name="Description" content={holding.description} />
+          <link rel="canonical" href="http://mysite.com/example" />
+        </Helmet>
         {/* <WindoW
           align="align-end"
         backgroundUrl={holding.image}>
@@ -68,21 +73,21 @@ class SinglePage extends Component {
         </Divider>
         <hr />
         <WindoW column background="background-secondary">
-        <Flex column width="w-90">
-          <Carousel
-            primary={holding.name}
-            items={holding.imageArr}
-            maxWidth="maxw-900px"
-            backgroundColor="background-primary"
-            height="h-500px"
-          />
-        </Flex>
+          <Flex column width="w-90">
+            <Carousel
+              primary={holding.name}
+              items={holding.imageArr}
+              maxWidth="maxw-900px"
+              backgroundColor="background-primary"
+              height="h-500px"
+            />
+          </Flex>
           <Flex column width="w-auto">
             <Flex maxWidth="maxw-100" style={{ overflowY: 'hidden' }}>
               {holding.imageArr.map((image, index) => {
                 return (
                   <div
-                   key={image}
+                    key={image}
                     className="flex column align-center justify-center carousel__image-background"
                     onClick={() => this.selectImage(index)}
                   >
@@ -221,7 +226,4 @@ const mapStateToProps = state => ({
   holdings: state.firebase.holdings
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SinglePage);
+export default connect(mapStateToProps, mapDispatchToProps)(SinglePage);

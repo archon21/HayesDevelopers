@@ -29,3 +29,15 @@
   top: 7vh;
   left: 0;
 }
+
+.aside__click-catcher {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 320px;
+  top: 0;
+  z-index: 100;
+  background: #3d3d3d65;
+  cursor: pointer;
+}
+
