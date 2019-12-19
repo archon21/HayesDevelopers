@@ -124,10 +124,6 @@ button:focus {
   border-bottom: 1px solid;
 }
 
-.py-10px {
-  padding: 0 10px;
-}
-
 // LANDING CAROUSEL
 
 #carousel-container {
@@ -228,6 +224,20 @@ button:focus {
 
 .py-5px {
   padding: 0 5px;
+}
+
+.single__page-bar--right {
+  height: 3px;
+  background: #014085;
+  margin: 0px 0 0px 10px;
+  width: 100%;
+}
+
+.single__page-bar--left {
+  height: 3px;
+  background: #014085;
+  margin: 0px 10px 0px 0px;
+  width: 10%;
 }
 
 @media only screen and (max-width: 1100px) {
