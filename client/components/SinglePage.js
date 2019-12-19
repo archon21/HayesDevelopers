@@ -137,7 +137,6 @@ class SinglePage extends Component {
               maxWidth="maxw-450px"
               margin="m-30px"
             >
-              <div className="flex column py-20px" />
               {holding.location && (
                 <div className="flex column align-start w-90">
                   <div className="flex row justify-center w-100 align-center">

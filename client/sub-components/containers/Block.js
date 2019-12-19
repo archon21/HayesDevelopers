@@ -36,7 +36,7 @@ class Block extends Component {
     ${height && height}
     ${margin ? margin : 'm-10px'}
     ${width ? width : 'w-100'}
-    flex column align-center justify-center minw-325px minh-325px
+    flex column align-center justify-center py-20px minw-325px minh-325px
     `}>
       <div
         onClick={onClick ? onClick : null}
