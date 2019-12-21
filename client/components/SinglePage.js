@@ -24,19 +24,32 @@ class SinglePage extends Component {
     if (this.props.location.state) {
       this.setState({ holding: this.props.location.state.holding });
     } else {
-      const { pathname } = this.props.location;
-      const targetArr = pathname.split('/');
-      const target = targetArr[targetArr.length - 1];
-      const type =
-        targetArr[targetArr.length - 2] === 'development'
-          ? 'developments'
-          : 'properties';
-
-      const holding = this.props.holdings[type][target];
-
-      this.setState({ holding });
+      this.getHolding();
     }
   }
+
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps &&
+      prevProps.location.pathname !== this.props.location.pathname
+    ) {
+      this.getHolding();
+    }
+  }
+
+  getHolding = () => {
+    const { pathname } = this.props.location;
+    const targetArr = pathname.split('/');
+    const target = targetArr[targetArr.length - 1];
+    const type =
+      targetArr[targetArr.length - 2] === 'development'
+        ? 'developments'
+        : 'properties';
+
+    const holding = this.props.holdings[type][target];
+
+    this.setState({ holding });
+  };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -144,7 +157,9 @@ class SinglePage extends Component {
                     <strong className="body-1 py-10px">LOCATION</strong>
                     <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-1 color-primary">{holding.location}</span>
+                  <span className="body-1 color-primary">
+                    {holding.location}
+                  </span>
                 </div>
               )}
               {holding.availabilities && (
@@ -154,7 +169,9 @@ class SinglePage extends Component {
                     <strong className="body-1 py-10px">AVAILABILITIES </strong>
                     <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-1 color-primary">{holding.availabilities}</span>
+                  <span className="body-1 color-primary">
+                    {holding.availabilities}
+                  </span>
                 </div>
               )}
               {holding.access && (
@@ -174,7 +191,9 @@ class SinglePage extends Component {
                     <strong className="body-1 py-10px">PARKING </strong>
                     <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-1 color-primary">{holding.parking}</span>
+                  <span className="body-1 color-primary">
+                    {holding.parking}
+                  </span>
                 </div>
               )}
               {holding.gla && (

@@ -10,6 +10,12 @@ class Carousel extends Component {
     messageTimer: null
   };
 
+  componentDidUpdate(prevProps) {
+    if (prevProps && this.props.primary !== prevProps.primary) {
+      this.setState({ focusedIndex: 0, focuseditem: this.props.items[0] });
+    }
+  }
+
   componentWillUnmount() {
     clearTimeout(this.state.timer);
   }
