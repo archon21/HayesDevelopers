@@ -140,51 +140,51 @@ class SinglePage extends Component {
               {holding.location && (
                 <div className="flex column align-start w-90">
                   <div className="flex row justify-center w-100 align-center">
-                    <div className="single__page-bar--left"></div>
+                    <div className="single__page-bar--left" />
                     <strong className="body-1 py-10px">LOCATION</strong>
-                    <div className="single__page-bar--right"></div>
+                    <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-2">{holding.location}</span>
+                  <span className="body-1 color-white">{holding.location}</span>
                 </div>
               )}
               {holding.availabilities && (
                 <div className="flex column align-start w-90">
                   <div className="flex row justify-center w-100 align-center">
-                    <div className="single__page-bar--left"></div>
+                    <div className="single__page-bar--left" />
                     <strong className="body-1 py-10px">AVAILABILITIES </strong>
-                    <div className="single__page-bar--right"></div>
+                    <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-2">{holding.availabilities}</span>
+                  <span className="body-1 color-white">{holding.availabilities}</span>
                 </div>
               )}
               {holding.access && (
                 <div className="flex column align-start w-90">
                   <div className="flex row justify-center w-100 align-center">
-                    <div className="single__page-bar--left"></div>
+                    <div className="single__page-bar--left" />
                     <strong className="body-1 py-10px">ACCESSIBILITY</strong>
-                    <div className="single__page-bar--right"></div>
+                    <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-2">{holding.access}</span>
+                  <span className="body-1 color-white">{holding.access}</span>
                 </div>
               )}
               {holding.parking && (
                 <div className="flex column align-start w-90">
                   <div className="flex row justify-center w-100 align-center">
-                    <div className="single__page-bar--left"></div>
+                    <div className="single__page-bar--left" />
                     <strong className="body-1 py-10px">PARKING </strong>
-                    <div className="single__page-bar--right"></div>
+                    <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-2">{holding.parking}</span>
+                  <span className="body-1 color-white">{holding.parking}</span>
                 </div>
               )}
               {holding.gla && (
                 <div className="flex column align-start w-90">
                   <div className="flex row justify-center w-100 align-center">
-                    <div className="single__page-bar--left"></div>
+                    <div className="single__page-bar--left" />
                     <strong className="body-1 py-10px">GLA </strong>
-                    <div className="single__page-bar--right"></div>
+                    <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-2">{holding.gla}</span>
+                  <span className="body-1 color-white">{holding.gla}</span>
                 </div>
               )}
             </Block>

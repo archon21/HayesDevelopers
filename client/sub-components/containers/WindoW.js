@@ -13,7 +13,7 @@ const WindoW = props => {
   return (
     <div
       style={{
-        overflowX: 'hidden',
+        overflow: 'hidden',
 
         backgroundImage: `${
           window.innerWidth > 800

@@ -16,15 +16,15 @@ class Home extends Component {
     scrolled: 0
   };
   aboutBlock = React.createRef();
-  charity1 = React.createRef();
-  charity2 = React.createRef();
-  charity3 = React.createRef();
-  charity4 = React.createRef();
-  sportingBlock = React.createRef();
-  sportingBlock2 = React.createRef();
-  carousel = React.createRef();
+  charityRef = React.createRef();
+  sportingRef = React.createRef();
+  hayesTeamRef = React.createRef();
+  propManRef = React.createRef();
 
   componentDidMount() {
+    if (this.props.location.state) {
+      this.handleScrollTo(this.props.location.state.ref);
+    }
     const browser = navigator.userAgent;
     if (browser.match(/Trident\/7\./) || browser.match('Edge/')) {
       console.log('MATCH');
@@ -37,6 +37,20 @@ class Home extends Component {
     }
     window.addEventListener('scroll', this.handleScroll);
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.location.state) {
+      if (
+        prevProps.location.state &&
+        prevProps.location.state.ref !== this.props.location.state.ref
+      ) {
+        this.handleScrollTo(this.props.location.state.ref);
+      } else if (!prevProps.location) {
+        this.handleScrollTo(this.props.location.state.ref);
+      }
+    }
+  }
+
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
@@ -46,15 +60,19 @@ class Home extends Component {
     this.setState({ scrolled: window.pageYOffset });
   };
 
+  handleScrollTo = ref => {
+    console.log(ref, this.charityRef.current.offsetTop);
+    const target = this[ref].current.offsetTop;
+    window.scroll(null, target - 70);
+    this.setState({ scrolled: target });
+  };
+
   render() {
     const {
-      charity1,
-      charity2,
-      charity3,
-      charity4,
-      sportingBlock,
-      sportingBlock2,
-      carousel,
+      sportingRef,
+      charityRef,
+      hayesTeamRef,
+      propManRef,
       state,
       props,
       aboutBlock
@@ -68,7 +86,7 @@ class Home extends Component {
           <Video video="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Hayes%20Developers.mp4?alt=media&token=6a7ba0b0-fee5-4cd7-ab8a-767d9c4aeaa4" />
         </WindoW>
         <Animator
-          inRef={aboutBlock}
+          forRef={aboutBlock}
           scrolled={scrolled}
           animation="a-wrapper--opacity"
           maxHeight="maxh-500px"
@@ -90,19 +108,107 @@ class Home extends Component {
                   their development needs.
                 </i>
               </p>
-
-              <Link to={{ pathname: '/hayes-team' }} className="headliner-4">
-                <h4 className="headline-4 color-primary">
-                  Read More about the Hayes Team
-                </h4>
-              </Link>
             </Block>
           </Flex>
         </Animator>
         <Divider
           border
+          forwardedRef={hayesTeamRef}
           backgroundColor="background-primary"
           color="color-secondary"
+        >
+          <h1 className="headline-4">The Hayes Team</h1>
+        </Divider>
+        <WindoW
+          column
+          backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/storrs-rd-plaza%2F302.JPG?alt=media&token=e10ea0cb-6615-478b-a43e-21a45138081f"
+        >
+          <hr />
+          {/* <img src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Hayes-Corp_Building_for_web.jpg?alt=media&token=f07d2d37-353d-4f0a-88f8-46edcf7eb095" /> */}
+          <Flex width="w-90" column>
+            <Block
+              column
+              type="info-card"
+              maxHeight="maxh-600px"
+              maxWidth="maxw-1000px"
+            >
+              <p className="body-1 color-secondary p-20px">
+                <i>
+                  Hayes Developers is a family owned and operated business with
+                  over 50 years’ experience in commercial real estate
+                  development, leasing and management. We have built a
+                  reputation of integrity, reliability and experience in the
+                  community. We are hands-on owners who boast a personal
+                  relationship with most of our tenants, from big box retailers
+                  to smaller mom-and-pop stores. We understand our customers’
+                  needs and work hard to address them at all stages of
+                  development.
+                </i>
+              </p>
+            </Block>
+
+            <hr />
+
+            <Block
+              column
+              type="info-card"
+              maxHeight="maxh-550px"
+              maxWidth="maxw-600px"
+              full
+            >
+              <h4 className="headline-4 color-secondary">The Hayes Company</h4>
+              <p className="body-1 color-secondary p-20px">
+                Richard P. Hayes, Sr. began his career in 1960 selling real
+                estate in Connecticut. The Hayes Company was formed and
+                specialized in residential property for 10 years and then became
+                a modular home dealer and developed several subdivisions. In
+                1970 forward, he devoted his attention to land sales, commercial
+                and industrial brokerage.
+              </p>
+            </Block>
+            <Block
+              column
+              type="info-card"
+              maxHeight="maxh-550px"
+              maxWidth="maxw-600px"
+              full
+            >
+              <h4 className="headline-4 color-secondary ">Hayes Properties</h4>
+              <p className="body-1 color-secondary p-20px">
+                Richard P. Hayes, Jr. joined the partnership in 1987 and
+                contributed to the development of several centers, as well as
+                his own projects under Hayes Properties.
+              </p>
+            </Block>
+
+            <Block
+              column
+              type="info-card"
+              maxHeight="maxh-1150px"
+              maxWidth="maxw-600px"
+            >
+              <h4 className="headline-4 color-secondary">Hayes-Kaufman</h4>
+              <p className="body-1 color-secondary">
+                In 1986, Richard Hayes joined with Mike Kaufman of
+                Basser-Kaufman located in Long Island, New York and began a new
+                venture to develop grocery anchored shopping centers in Central
+                Connecticut. One project led to another and over the next 20
+                years they completed 7 shopping centers under the name of
+                Hayes-Kaufman. This venture with Mr. Kaufman and associates
+                proved to be a very successful partnership. Today, Rich Jr.,
+                along with Steve Kaufman and Marc Kemp continue to acquire and
+                develop various retail properties. They are involved in all
+                aspects from initial site assessments to development, leasing,
+                and management.
+              </p>
+            </Block>
+          </Flex>
+        </WindoW>
+        <Divider
+          border
+          backgroundColor="background-primary"
+          color="color-secondary"
+          forwardedRef={charityRef}
         >
           <h1 className="headline-4">Community</h1>
         </Divider>
@@ -112,7 +218,7 @@ class Home extends Component {
         >
           <Flex row justify="justify-space-evenly" width="w-90">
             <Animator
-              inRef={charity1}
+              aliasRef={charityRef}
               scrolled={scrolled}
               animation="a-wrapper--left"
               maxHeight="maxh-550px"
@@ -130,7 +236,7 @@ class Home extends Component {
               </Block>
             </Animator>
             <Animator
-              inRef={charity2}
+              aliasRef={charityRef}
               scrolled={scrolled}
               animation="a-wrapper--right"
               maxHeight="maxh-550px"
@@ -148,7 +254,7 @@ class Home extends Component {
           </Flex>
           <Flex row justify="justify-space-evenly" width="w-90">
             <Animator
-              inRef={charity3}
+              aliasRef={charityRef}
               scrolled={scrolled}
               animation="a-wrapper--left"
               maxHeight="maxh-550px"
@@ -164,7 +270,7 @@ class Home extends Component {
               </Block>
             </Animator>
             <Animator
-              inRef={charity4}
+              aliasRef={charityRef}
               scrolled={scrolled}
               animation="a-wrapper--right"
               maxHeight="maxh-550px"
@@ -182,6 +288,7 @@ class Home extends Component {
           </Flex>
         </WindoW>
         <Divider
+          forwardedRef={sportingRef}
           border
           backgroundColor="background-primary"
           color="color-secondary"
@@ -191,7 +298,7 @@ class Home extends Component {
         <WindoW backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/berlin-center-plaza%2FIMG_5796.JPG?alt=media&token=54ac8ffb-17a2-4730-b2e5-0a3e39a2bd53">
           <Flex row justify="justify-space-evenly" width="w-90">
             <Animator
-              inRef={sportingBlock}
+              aliasRef={sportingRef}
               scrolled={scrolled}
               animation="a-wrapper--left"
               maxHeight="maxh-450px"
@@ -209,7 +316,7 @@ class Home extends Component {
               </Block>
             </Animator>
             <Animator
-              inRef={sportingBlock2}
+              aliasRef={sportingRef}
               scrolled={scrolled}
               animation="a-wrapper--right"
               maxHeight="maxh-450px"
@@ -264,102 +371,7 @@ class Home extends Component {
               }
             ]}
           />
-          <Divider
-            border
-            backgroundColor="background-primary"
-            color="color-secondary"
-          >
-            <h1 className="headline-4">The Hayes Team</h1>
-          </Divider>
-          <WindoW
-            column
-            backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/storrs-rd-plaza%2F302.JPG?alt=media&token=e10ea0cb-6615-478b-a43e-21a45138081f"
-          >
-            <hr />
-            {/* <img src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Hayes-Corp_Building_for_web.jpg?alt=media&token=f07d2d37-353d-4f0a-88f8-46edcf7eb095" /> */}
-            <Flex width="w-90" column>
-              <Block
-                column
-                type="info-card"
-                maxHeight="maxh-600px"
-                maxWidth="maxw-1000px"
-              >
-                <p className="body-1 color-secondary p-20px">
-                  <i>
-                    Hayes Developers is a family owned and operated business
-                    with over 50 years’ experience in commercial real estate
-                    development, leasing and management. We have built a
-                    reputation of integrity, reliability and experience in the
-                    community. We are hands-on owners who boast a personal
-                    relationship with most of our tenants, from big box
-                    retailers to smaller mom-and-pop stores. We understand our
-                    customers’ needs and work hard to address them at all stages
-                    of development.
-                  </i>
-                </p>
-              </Block>
 
-              <hr />
-
-              <Block
-                column
-                type="info-card"
-                maxHeight="maxh-550px"
-                maxWidth="maxw-600px"
-                full
-              >
-                <h4 className="headline-4 color-secondary">
-                  The Hayes Company
-                </h4>
-                <p className="body-1 color-secondary p-20px">
-                  Richard P. Hayes, Sr. began his career in 1960 selling real
-                  estate in Connecticut. The Hayes Company was formed and
-                  specialized in residential property for 10 years and then
-                  became a modular home dealer and developed several
-                  subdivisions. In 1970 forward, he devoted his attention to
-                  land sales, commercial and industrial brokerage.
-                </p>
-              </Block>
-              <Block
-                column
-                type="info-card"
-                maxHeight="maxh-550px"
-                maxWidth="maxw-600px"
-                full
-              >
-                <h4 className="headline-4 color-secondary ">
-                  Hayes Properties
-                </h4>
-                <p className="body-1 color-secondary p-20px">
-                  Richard P. Hayes, Jr. joined the partnership in 1987 and
-                  contributed to the development of several centers, as well as
-                  his own projects under Hayes Properties.
-                </p>
-              </Block>
-
-              <Block
-                column
-                type="info-card"
-                maxHeight="maxh-1150px"
-                maxWidth="maxw-600px"
-              >
-                <h4 className="headline-4 color-secondary">Hayes-Kaufman</h4>
-                <p className="body-1 color-secondary">
-                  In 1986, Richard Hayes joined with Mike Kaufman of
-                  Basser-Kaufman located in Long Island, New York and began a
-                  new venture to develop grocery anchored shopping centers in
-                  Central Connecticut. One project led to another and over the
-                  next 20 years they completed 7 shopping centers under the name
-                  of Hayes-Kaufman. This venture with Mr. Kaufman and associates
-                  proved to be a very successful partnership. Today, Rich Jr.,
-                  along with Steve Kaufman and Marc Kemp continue to acquire and
-                  develop various retail properties. They are involved in all
-                  aspects from initial site assessments to development, leasing,
-                  and management.
-                </p>
-              </Block>
-            </Flex>
-          </WindoW>
           <Divider color="color-white" backgroundColor="background-primary">
             <h4 className="headline-4">
               We Have Also Developed for the Following Companies
@@ -375,6 +387,7 @@ class Home extends Component {
           />
         </WindoW>
         <Divider
+          forwardedRef={propManRef}
           border
           backgroundColor="background-primary"
           color="color-secondary"

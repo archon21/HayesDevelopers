@@ -3,20 +3,21 @@ import React, { Component } from 'react';
 class Animator extends Component {
   render() {
     const {
-      inRef,
+      forRef,
       children,
       scrolled,
       animation,
       maxWidth,
-      maxHeight
+      maxHeight,
+      aliasRef
     } = this.props;
-
+    const target = forRef ? forRef : aliasRef
     return (
       <div
-        ref={inRef && inRef}
+        ref={forRef && forRef}
         className={` ${maxWidth} ${maxHeight} ${
           animation ? animation : 'a-wrapper--right'
-        } ${scrolled > (inRef.current && inRef.current.offsetTop - 800) &&
+        } ${scrolled > (target.current && target.current.offsetTop - 800) &&
           'visible'}
 
          flex minw-325px minh-325px h-100 w-100`}

@@ -28,9 +28,18 @@
   align-items: center;
 }
 
+.align-start {
+  align-items: flex-start;
+}
+
 .align-end {
   align-items: flex-end;
 }
+
+.align-self-end {
+  align-self: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }

@@ -19,10 +19,10 @@
 @import './scss/awards.scss';
 @import './scss/slider.scss';
 @import './scss/aside.scss';
+@import 'scss//gril.scss';
 
 // html { overflow:hidden; }
 // body { overflow:auto; height:100%; }
-
 
 html {
   scrollbar-width: none; /* For Firefox */
@@ -227,7 +227,6 @@ button:focus {
   margin: 0 !important;
   padding: 0 10px 0 !important;
 }
-
 
 .single__page-bar--right {
   height: 3px;

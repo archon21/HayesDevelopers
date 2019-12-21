@@ -10,7 +10,9 @@ import Sidebar from './Sidebar';
 class Nav extends Component {
   state = {
     open: true,
-    selectedLink: ''
+    selectedLink: '',
+    sideSelectedLink: ''
+
   };
 
   componentDidMount() {
@@ -30,12 +32,12 @@ class Nav extends Component {
     this.setState({ open: true });
   };
 
-  selectLink = link => {
-    this.setState({ selectedLink: link, open: true });
+  selectLink = (selectedLink, sideSelectedLink) => {
+    this.setState({ selectedLink, sideSelectedLink, open: true });
   };
 
   render() {
-    const { open, selectedLink } = this.state;
+    const { open, selectedLink, sideSelectedLink} = this.state;
     return (
       <nav id="nav-h" className="flex column black align-center">
         <NavHButton open={open} toggleNavH={this.toggleNavH} />
@@ -49,6 +51,7 @@ class Nav extends Component {
           selectLink={this.selectLink}
           selectedLink={selectedLink}
           openContact={this.openContact}
+          sideSelectedLink={sideSelectedLink}
         />
       </nav>
     );
