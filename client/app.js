@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Navbar, Footer } from './components';
+import { Nav, Footer } from './components';
 import Routes from './routes';
 import { willReadDB, alertInteraction } from './store';
 import { Alert, Loader, Fab } from './sub-components';
@@ -52,7 +52,7 @@ class App extends Component {
           template={alertTemplate}
           onClickCatcher={() => this.props.alertInteraction(false)}
         />
-        <Navbar />
+        <Nav />
         <div style={{ margin: '60px 0 0 0' }}>
           <Routes />
         </div>

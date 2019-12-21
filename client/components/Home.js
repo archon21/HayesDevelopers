@@ -25,13 +25,24 @@ class Home extends Component {
   carousel = React.createRef();
 
   componentDidMount() {
+    const browser = navigator.userAgent;
+    if (browser.match(/Trident\/7\./) || browser.match('Edge/')) {
+      console.log('MATCH');
+      document.body.addEventListener('mousewheel', function() {
+        event.preventDefault();
+        var wd = event.wheelDelta;
+        var csp = window.pageYOffset;
+        window.scrollTo(0, csp - wd);
+      });
+    }
     window.addEventListener('scroll', this.handleScroll);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleScroll = e => {
+  handleScroll = event => {
+    event.preventDefault();
     this.setState({ scrolled: window.pageYOffset });
   };
 
@@ -253,6 +264,102 @@ class Home extends Component {
               }
             ]}
           />
+          <Divider
+            border
+            backgroundColor="background-primary"
+            color="color-secondary"
+          >
+            <h1 className="headline-4">The Hayes Team</h1>
+          </Divider>
+          <WindoW
+            column
+            backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/storrs-rd-plaza%2F302.JPG?alt=media&token=e10ea0cb-6615-478b-a43e-21a45138081f"
+          >
+            <hr />
+            {/* <img src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Hayes-Corp_Building_for_web.jpg?alt=media&token=f07d2d37-353d-4f0a-88f8-46edcf7eb095" /> */}
+            <Flex width="w-90" column>
+              <Block
+                column
+                type="info-card"
+                maxHeight="maxh-600px"
+                maxWidth="maxw-1000px"
+              >
+                <p className="body-1 color-secondary p-20px">
+                  <i>
+                    Hayes Developers is a family owned and operated business
+                    with over 50 years’ experience in commercial real estate
+                    development, leasing and management. We have built a
+                    reputation of integrity, reliability and experience in the
+                    community. We are hands-on owners who boast a personal
+                    relationship with most of our tenants, from big box
+                    retailers to smaller mom-and-pop stores. We understand our
+                    customers’ needs and work hard to address them at all stages
+                    of development.
+                  </i>
+                </p>
+              </Block>
+
+              <hr />
+
+              <Block
+                column
+                type="info-card"
+                maxHeight="maxh-550px"
+                maxWidth="maxw-600px"
+                full
+              >
+                <h4 className="headline-4 color-secondary">
+                  The Hayes Company
+                </h4>
+                <p className="body-1 color-secondary p-20px">
+                  Richard P. Hayes, Sr. began his career in 1960 selling real
+                  estate in Connecticut. The Hayes Company was formed and
+                  specialized in residential property for 10 years and then
+                  became a modular home dealer and developed several
+                  subdivisions. In 1970 forward, he devoted his attention to
+                  land sales, commercial and industrial brokerage.
+                </p>
+              </Block>
+              <Block
+                column
+                type="info-card"
+                maxHeight="maxh-550px"
+                maxWidth="maxw-600px"
+                full
+              >
+                <h4 className="headline-4 color-secondary ">
+                  Hayes Properties
+                </h4>
+                <p className="body-1 color-secondary p-20px">
+                  Richard P. Hayes, Jr. joined the partnership in 1987 and
+                  contributed to the development of several centers, as well as
+                  his own projects under Hayes Properties.
+                </p>
+              </Block>
+
+              <Block
+                column
+                type="info-card"
+                maxHeight="maxh-1150px"
+                maxWidth="maxw-600px"
+              >
+                <h4 className="headline-4 color-secondary">Hayes-Kaufman</h4>
+                <p className="body-1 color-secondary">
+                  In 1986, Richard Hayes joined with Mike Kaufman of
+                  Basser-Kaufman located in Long Island, New York and began a
+                  new venture to develop grocery anchored shopping centers in
+                  Central Connecticut. One project led to another and over the
+                  next 20 years they completed 7 shopping centers under the name
+                  of Hayes-Kaufman. This venture with Mr. Kaufman and associates
+                  proved to be a very successful partnership. Today, Rich Jr.,
+                  along with Steve Kaufman and Marc Kemp continue to acquire and
+                  develop various retail properties. They are involved in all
+                  aspects from initial site assessments to development, leasing,
+                  and management.
+                </p>
+              </Block>
+            </Flex>
+          </WindoW>
           <Divider color="color-white" backgroundColor="background-primary">
             <h4 className="headline-4">
               We Have Also Developed for the Following Companies
@@ -266,6 +373,104 @@ class Home extends Component {
               'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/3rdPartyLogos%2Fdownload%20(2).png?alt=media&token=8ced3483-8183-4730-934c-d8ffd2ac230d'
             ]}
           />
+        </WindoW>
+        <Divider
+          border
+          backgroundColor="background-primary"
+          color="color-secondary"
+        >
+          <h1 className="headline-4">Property Management Services</h1>
+        </Divider>
+        <WindoW
+          column
+          backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/fenn-rd-plaza%2FDSC_2043%20copy.JPG?alt=media&token=98340314-70a8-4471-8b25-bea88128564c"
+        >
+          <hr />
+          <Flex width="w-90" column>
+            <Block
+              column
+              type="info-card"
+              maxHeight="maxh-700px"
+              maxWidth="maxw-1000px"
+              color="color-secondary"
+            >
+              <p className="body-1">
+                As a fully integrated real estate development firm, Hayes
+                Developers does it all from the ground up. From land acquisition
+                and approvals to construction, leasing, and property management,
+                we are involved in our properties every step of the way. We cut
+                through obstacles and get the job done right and on schedule. We
+                offer the knowledge and expertise of a large, established firm,
+                plus the personal attention of a family-owned business.
+              </p>
+            </Block>
+            <br />
+            <Block
+              column
+              type="info-card"
+              maxHeight="maxh-700px"
+              maxWidth="maxw-1000px"
+              color="color-secondary"
+            >
+              <p className="body-1 ">
+                Tenants can call our office and get personalized service, and,
+                in most instances, speak directly to the Principals of the
+                company. Our tenants and prospects are handled with courteous,
+                reliable, fair and honest service. You will always speak to a
+                person, not a machine. Assisting our tenants is our main goal
+                with same day solutions and consistent communication with all
+                parties involved. We pride ourselves on being detail-oriented
+                and developing good relationships.
+              </p>
+            </Block>
+            <br />
+            <Block
+              column
+              type="info-card"
+              maxHeight="maxh-700px"
+              maxWidth="maxw-1000px"
+              color="color-secondary"
+            >
+              <p className="body-1 ">
+                Prospective tenants interested in available properties will
+                receive information the same day of inquiry and those interested
+                in viewing a property will be able to schedule an appointment at
+                their convenience. Our in-house Property Manager is available to
+                our tenants and prospects 7 days a week.
+              </p>
+            </Block>
+          </Flex>
+          <hr />
+
+          <Flex column width="w-90">
+            <Block
+              column
+              type="info-card"
+              maxHeight="maxh-400px"
+              maxWidth="maxw-400px"
+              color="color-secondary"
+            >
+              <h6 className="headline-6 text-center">
+                Property Management Services
+              </h6>
+              <div className="w-100 flex column align-center">
+                <p className="body-2 text-center">1471 Pleasant Valley Road </p>
+                <p className="body-2 text-center margin-0 padding-0">
+                  Manchester, CT 06042
+                </p>
+              </div>
+              <div className="w-100 flex column align-center">
+                <p className="body-2 text-center">Ph: (860) 646-0131 </p>
+                <p className="body-2 text-center margin-0 padding-0">
+                  Fax: (860) 644-9073
+                </p>
+              </div>
+              <p className="body-1 text-center">
+                For more information about our Property Management services,
+                please inquire below.
+              </p>
+            </Block>
+          </Flex>
         </WindoW>
       </div>
     );

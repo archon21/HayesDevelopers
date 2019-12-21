@@ -14,6 +14,7 @@ const WindoW = props => {
     <div
       style={{
         overflowX: 'hidden',
+
         backgroundImage: `${
           window.innerWidth > 800
             ? `url(${backgroundUrl})`
