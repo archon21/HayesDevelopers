@@ -27,7 +27,7 @@ class Home extends Component {
     }
     const browser = navigator.userAgent;
     if (browser.match(/Trident\/7\./) || browser.match('Edge/')) {
-      console.log('MATCH');
+
       document.body.addEventListener('mousewheel', function() {
         event.preventDefault();
         var wd = event.wheelDelta;
@@ -61,7 +61,7 @@ class Home extends Component {
   };
 
   handleScrollTo = ref => {
-    console.log(ref, this.charityRef.current.offsetTop);
+
     const target = this[ref].current.offsetTop;
     window.scroll(null, target - 70);
     this.setState({ scrolled: target });

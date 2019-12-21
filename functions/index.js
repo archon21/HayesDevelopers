@@ -44,8 +44,8 @@ exports.app = functions.https.onRequest(async (req, res) => {
     }
   } catch (err) {
     console.error(err);
-     res.send(
-        `<html>
+    res.send(
+      `<html>
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta charset="UTF-8" />
@@ -71,15 +71,16 @@ exports.app = functions.https.onRequest(async (req, res) => {
             rel="icon"
             href="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Logos%2Flogo.png?alt=media&token=b8dff8c7-dafa-41cd-838c-a4b544a8a70c"
             />
-            <script src="/js/bundle.js"></script>
+            <link rel="manifest" href="./serviceworker/manifest.json" />
+    <script defer src="/js/bundle.js"></script>
+    <script src="./serviceworker.js"></script>
         </head>
 
         <body>
             <div id="app"></div>
         </body>
         </html>`
-
-     )
+    );
   }
 });
 
@@ -125,7 +126,9 @@ const fillTemplate = (res, title, desc, img) => {
           rel="icon"
           href="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Logos%2Flogo.png?alt=media&token=b8dff8c7-dafa-41cd-838c-a4b544a8a70c"
         />
-        <script defer src="/js/bundle.js"></script>
+        <link rel="manifest" href="./serviceworker/manifest.json" />
+    <script defer src="/js/bundle.js"></script>
+    <script src="./serviceworker.js"></script>
       </head>
 
       <body>

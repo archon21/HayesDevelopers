@@ -144,7 +144,7 @@ class SinglePage extends Component {
                     <strong className="body-1 py-10px">LOCATION</strong>
                     <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-1 color-white">{holding.location}</span>
+                  <span className="body-1 color-primary">{holding.location}</span>
                 </div>
               )}
               {holding.availabilities && (
@@ -154,7 +154,7 @@ class SinglePage extends Component {
                     <strong className="body-1 py-10px">AVAILABILITIES </strong>
                     <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-1 color-white">{holding.availabilities}</span>
+                  <span className="body-1 color-primary">{holding.availabilities}</span>
                 </div>
               )}
               {holding.access && (
@@ -164,7 +164,7 @@ class SinglePage extends Component {
                     <strong className="body-1 py-10px">ACCESSIBILITY</strong>
                     <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-1 color-white">{holding.access}</span>
+                  <span className="body-1 color-primary">{holding.access}</span>
                 </div>
               )}
               {holding.parking && (
@@ -174,7 +174,7 @@ class SinglePage extends Component {
                     <strong className="body-1 py-10px">PARKING </strong>
                     <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-1 color-white">{holding.parking}</span>
+                  <span className="body-1 color-primary">{holding.parking}</span>
                 </div>
               )}
               {holding.gla && (
@@ -184,7 +184,7 @@ class SinglePage extends Component {
                     <strong className="body-1 py-10px">GLA </strong>
                     <div className="single__page-bar--right" />
                   </div>
-                  <span className="body-1 color-white">{holding.gla}</span>
+                  <span className="body-1 color-primary">{holding.gla}</span>
                 </div>
               )}
             </Block>
