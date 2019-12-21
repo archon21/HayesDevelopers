@@ -39,10 +39,7 @@ class Nav extends Component {
     return (
       <nav id="nav-h" className="flex column black align-center">
         <NavHButton open={open} toggleNavH={this.toggleNavH} />
-        <Navbar
-          selectLink={this.selectLink}
-          selectedLink={selectedLink}
-        ></Navbar>
+        <Navbar selectLink={this.selectLink} selectedLink={selectedLink} />
         <div
           onClick={this.toggleNavH}
           className={` ${!open && 'aside__click-catcher'} `}

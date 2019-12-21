@@ -7,8 +7,8 @@ const Sidebar = props => {
   return (
     <aside
       className={` ${
-        !open ? 'aside--open ' : 'aside'
-      } flex column align-center justify-center  `}
+        !open ? 'open' : ''
+      } aside flex column align-center justify-center  `}
     >
       <Link
         className={`link__major headline-6 color-white p-5px ${selectedLink ===
