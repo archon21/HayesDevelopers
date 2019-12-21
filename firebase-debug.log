@@ -1,0 +1,116 @@
+[debug] [2019-12-21T09:16:45.633Z] ----------------------------------------------------------------------
+[debug] [2019-12-21T09:16:45.635Z] Command:       /usr/local/Cellar/node@10/10.17.0/bin/node /usr/local/bin/firebase deploy
+[debug] [2019-12-21T09:16:45.636Z] CLI Version:   7.9.0
+[debug] [2019-12-21T09:16:45.636Z] Platform:      darwin
+[debug] [2019-12-21T09:16:45.636Z] Node Version:  v10.17.0
+[debug] [2019-12-21T09:16:45.641Z] Time:          Sat Dec 21 2019 04:16:45 GMT-0500 (Eastern Standard Time)
+[debug] [2019-12-21T09:16:45.641Z] ----------------------------------------------------------------------
+[debug] [2019-12-21T09:16:45.641Z] 
+[debug] [2019-12-21T09:16:45.650Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-21T09:16:45.650Z] > authorizing via signed-in user
+[debug] [2019-12-21T09:16:45.650Z] [iam] checking project hayesdevelopers for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-12-21T09:16:45.652Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/hayesdevelopers:testIamPermissions  
+
+[debug] [2019-12-21T09:16:46.013Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-21T09:16:46.015Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/hayesdevelopers  
+ 
+[debug] [2019-12-21T09:16:46.316Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'hayesdevelopers'...
+[info] 
+[info] i  deploying firestore, functions, hosting
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script.
+[info] i  firestore: reading indexes from firestore.indexes.json...
+[info] i  cloud.firestore: checking firestore.rules for compilation errors...
+[debug] [2019-12-21T09:16:51.832Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/hayesdevelopers:test  
+
+[debug] [2019-12-21T09:16:52.086Z] <<< HTTP RESPONSE 200
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully
+[debug] [2019-12-21T09:16:52.087Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "dependencies": {
+    "@firebase/app": "^0.5.0",
+    "@firebase/component": "^0.1.1",
+    "firebase-admin": "^8.8.0",
+    "firebase-functions": "^3.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "firebase-functions-test": "^0.1.6"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2019-12-21T09:16:52.088Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/hayesdevelopers/services/cloudfunctions.googleapis.com  
+ 
+[debug] [2019-12-21T09:16:52.089Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/hayesdevelopers/services/runtimeconfig.googleapis.com  
+ 
+[debug] [2019-12-21T09:16:52.548Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-21T09:16:52.578Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2019-12-21T09:16:52.578Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/hayesdevelopers/adminSdkConfig  
+ 
+[debug] [2019-12-21T09:16:52.813Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-21T09:16:52.815Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/hayesdevelopers/versions  
+
+[debug] [2019-12-21T09:16:53.948Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-21T09:16:53.953Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/hayesdevelopers/releases?pageSize=10&pageToken=  
+ 
+[debug] [2019-12-21T09:16:53.955Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta2/projects/hayesdevelopers/databases/(default)/collectionGroups/-/indexes  
+ 
+[debug] [2019-12-21T09:16:54.188Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-21T09:16:54.191Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/hayesdevelopers/rulesets/a6d79b46-a3d2-4d1f-ae6e-bf0f60bed5a0  
+ 
+[debug] [2019-12-21T09:16:54.254Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-21T09:16:54.256Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta2/projects/hayesdevelopers/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
+ 
+[debug] [2019-12-21T09:16:54.409Z] <<< HTTP RESPONSE 200
+[info] i  firestore: latest version of firestore.rules already up to date, skipping upload...
+[debug] [2019-12-21T09:16:54.486Z] <<< HTTP RESPONSE 200
+[info] ✔  firestore: deployed indexes in firestore.indexes.json successfully
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2019-12-21T09:16:54.495Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/hayesdevelopers/configs  
+ 
+[debug] [2019-12-21T09:16:54.774Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (41.87 KB) for uploading
+[debug] [2019-12-21T09:16:55.523Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/hayesdevelopers/locations/us-central1/functions:generateUploadUrl  
+ 
+[debug] [2019-12-21T09:16:56.643Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-21T09:16:56.643Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-6b2ecb2e-6a55-4d38-b69d-18dd6296bc31/0ad71005-c38e-4a0b-b77a-88c19494eeb1.zip?GoogleAccessId=service-389413182568@gcf-admin-robot.iam.gserviceaccount.com&Expires=1576921616&Signature=EnMESmKBSsyq6vtaGeRF3h4cHJ3IjSobqpYYK7NjracmtPThuQirNqExc4gZQwNxqtaPpezYOTQyV%2FTXN5xagk0YyDy44gUkVbzpdIueHzCRWLVkkEBljcCaMBFpl%2FxquCqqzgvzQDRoXZl23v0kHPsmUSvtYwvs2Fo9o7WyPbH8Y73jUKe3ycU6kCwIJCCg6%2FCKPZAGADT2KKklsJ8CQhqMLq%2FPGTnDfTSaQwUrHcxE6H3AxQHa9FklJ5wZlZPFCGWo1zta%2BYL49IMhDGTUZlWUxqcs7%2FPDcyAW5LCDh7uQhJ2kiB2qtmRISQD%2BTSACDA%2BPG6uJ5F0YNHsSkjXoqQ%3D%3D  
+ <request body omitted>
+[debug] [2019-12-21T09:16:56.980Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[info] i  hosting[hayesdevelopers]: beginning deploy...
+[info] i  hosting[hayesdevelopers]: found 39 files in public
+[debug] [2019-12-21T09:16:57.012Z] [hosting] hash cache [cHVibGlj] stored for 39 files
+[debug] [2019-12-21T09:16:57.014Z] [hosting][hash queue][FINAL]
+[debug] [2019-12-21T09:16:57.014Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/hayesdevelopers/versions/7c9036d4c2728d6e:populateFiles  
+ <request body omitted>
+[debug] [2019-12-21T09:16:58.386Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-21T09:16:58.391Z] [hosting][populate queue][FINAL]
+[debug] [2019-12-21T09:16:58.391Z] [hosting] uploads queued: 2
+[debug] [2019-12-21T09:17:00.559Z] [hosting][upload queue][FINAL]
+[info] ✔  hosting[hayesdevelopers]: file upload complete
+[debug] [2019-12-21T09:17:00.559Z] [hosting] deploy completed after 3576ms
+[debug] [2019-12-21T09:17:00.561Z] [rules] releasing cloud.firestore with ruleset projects/hayesdevelopers/rulesets/a6d79b46-a3d2-4d1f-ae6e-bf0f60bed5a0
+[debug] [2019-12-21T09:17:00.561Z] >>> HTTP REQUEST PATCH https://firebaserules.googleapis.com/v1/projects/hayesdevelopers/releases/cloud.firestore  
+
+[debug] [2019-12-21T09:17:01.047Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-21T09:17:01.047Z] [rules] updated release projects/hayesdevelopers/releases/cloud.firestore
+[info] ✔  firestore: released rules firestore.rules to cloud.firestore
+[debug] [2019-12-21T09:17:01.049Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/hayesdevelopers/locations/-/functions  
+ 

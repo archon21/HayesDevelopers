@@ -1,14 +1,14 @@
 {
   "name": "Welcome to Hayes Developers",
-  "short_name": "Vulpes",
+  "short_name": "HD",
   "description": "Hayes Developers mobile web app.",
   "start_url": "/",
   "background_color": "#014085",
-  "theme_color": "#014085",
+  "theme_color": "#fff",
   "icons": [
     {
-      "src": "https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Logos%2FLogo%20Large%20White.png?alt=media&token=7109b6eb-0243-41fe-88e4-9bd80693679b",
-      "sizes": "277x256",
+      "src": "/assets/logos/logo-vert--small.png",
+      "sizes": "256x418",
       "type": "image/png"
     }
   ],

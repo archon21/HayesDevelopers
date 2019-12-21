@@ -18,6 +18,20 @@ class App extends Component {
     await this.props.willReadDB('all');
     this.setState({ mounted: true });
   }
+
+  copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      console.log('Page URL copied to clipboard');
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+
+  handleContact = () => {
+    window.scrollTo(0, this.props.footerCoords - 100);
+  };
+
   render() {
     const { mounted } = this.state;
     const { alertStatus, alertTemplate } = this.props;
@@ -26,24 +40,14 @@ class App extends Component {
         <Fab
           options={[
             {
-              name: 'meeting_room',
-              label: 'Leasing Opportunities',
-              action: () => this.props.history.push('/holdings/opportunities')
+              name: 'link',
+              label: 'Copy Link',
+              action: () => this.copyLink()
             },
             {
-              name: 'view_agenda',
-              label: 'Development Opportunites',
-              action: () => this.props.history.push('/holdings/development')
-            },
-            {
-              name: 'location_city',
-              label: 'All Properties',
-              action: () => this.props.history.push('/holdings/all-properties')
-            },
-            {
-              name: 'arrow_upward',
-              label: 'Back To Top',
-              action: () => window.scrollTo(0, 0)
+              name: 'message',
+              label: 'Contact',
+              action: () => this.handleContact()
             }
           ]}
         />
@@ -66,7 +70,8 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   alertTemplate: state.util.alertTemplate,
-  alertStatus: state.util.alertStatus
+  alertStatus: state.util.alertStatus,
+  footerCoords: state.util.footerCoords
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -74,9 +79,4 @@ const mapDispatchToProps = dispatch => ({
   alertInteraction: (status, template) =>
     dispatch(alertInteraction(status, template))
 });
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(App)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -28,8 +28,8 @@ const Sidebar = props => {
             const { name } = data;
             return (
               <Link
-                className={`aside__link__minor text-left ${sideSelectedLink === key &&
-                  'selected'}  body-2 color-white p-5px `}
+                className={`aside__link__minor text-left ${sideSelectedLink ===
+                  key && 'selected'}  body-2 color-white p-5px `}
                 key={key}
                 to={{ pathname: `/holdings/development/${key}` }}
                 onClick={() => selectLink(`development`, key)}
@@ -53,11 +53,11 @@ const Sidebar = props => {
         <div className="flex column align-start align-self-end w-90">
           {Object.entries(holdings.properties).map(leasing => {
             const [key, data] = leasing;
-            const { name} = data;
+            const { name } = data;
             return (
               <Link
-              className={`aside__link__minor text-left ${sideSelectedLink === key &&
-                'selected'}  body-2 color-white p-5px `}
+                className={`aside__link__minor text-left ${sideSelectedLink ===
+                  key && 'selected'}  body-2 color-white p-5px `}
                 key={key}
                 to={{ pathname: `/holdings/opportunities/${key}` }}
                 onClick={() => selectLink(`opportunities`, key)}
@@ -137,13 +137,15 @@ const Sidebar = props => {
             PROPERTY MANAGEMENT
           </Link>
         </div>
+
+        <h1
+          className="aside__link__major w-100 text-left  margin-0  headline-6 color-white"
+          onClick={openContact}
+        >
+          CONTACT
+        </h1>
       </div>
-      <h1
-        className="aside__link__major w-100 text-left  margin-0  headline-6 color-white"
-        onClick={openContact}
-      >
-        CONTACT
-      </h1>
+
       <Gril />
       <div className="flex column wrap my-20px text-center">
         <p className="body-2 color-tirciary my-5px padding-0">

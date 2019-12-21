@@ -71,9 +71,9 @@ exports.app = functions.https.onRequest(async (req, res) => {
             rel="icon"
             href="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Logos%2Flogo.png?alt=media&token=b8dff8c7-dafa-41cd-838c-a4b544a8a70c"
             />
-            <link rel="manifest" href="./serviceworker/manifest.json" />
-    <script defer src="/js/bundle.js"></script>
-    <script src="./serviceworker.js"></script>
+            <link rel="manifest" href="/serviceworker/manifest.json" />
+          <script defer src="/js/bundle.js"></script>
+          <script src="/serviceworker.js"></script>
         </head>
 
         <body>
@@ -126,9 +126,9 @@ const fillTemplate = (res, title, desc, img) => {
           rel="icon"
           href="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Logos%2Flogo.png?alt=media&token=b8dff8c7-dafa-41cd-838c-a4b544a8a70c"
         />
-        <link rel="manifest" href="./serviceworker/manifest.json" />
+        <link rel="manifest" href="/serviceworker/manifest.json" />
     <script defer src="/js/bundle.js"></script>
-    <script src="./serviceworker.js"></script>
+    <script src="/serviceworker.js"></script>
       </head>
 
       <body>
