@@ -4,6 +4,7 @@ public/css
 public/sitemap.xml
 secrets.js
 dist
+util
 
 .firebase
 .firebaserc

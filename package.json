@@ -25,7 +25,7 @@
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.1.1",
     "express": "^4.17.1",
-    "firebase": "^5.11.1",
+    "firebase": "^7.6.1",
     "google-maps-react": "^2.0.2",
     "history": "^4.10.1",
     "purify-css": "^1.2.5",
@@ -71,14 +71,17 @@
     "eslint-config-fullstack": "^6.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.17.0",
+    "jimp": "^0.9.3",
     "mini-css-extract-plugin": "^0.4.5",
     "morgan": "^1.9.1",
+    "node-imagemagick": "^0.1.8",
     "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "react-router-sitemap": "^1.2.0",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.9",
+    "xhr2": "^0.2.0"
   }
 }

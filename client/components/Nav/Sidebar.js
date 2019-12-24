@@ -137,16 +137,15 @@ const Sidebar = props => {
             PROPERTY MANAGEMENT
           </Link>
         </div>
-
-        <h1
-          className="aside__link__major w-100 text-left  margin-0  headline-6 color-white"
-          onClick={openContact}
-        >
-          CONTACT
-        </h1>
       </div>
 
       <Gril />
+      <h1
+        className="aside__link__major w-100 text-center  margin-0  headline-6 color-white"
+        onClick={openContact}
+      >
+        CONTACT
+      </h1>
       <div className="flex column wrap my-20px text-center">
         <p className="body-2 color-tirciary my-5px padding-0">
           <b> Ph: (860) 646-0131</b>

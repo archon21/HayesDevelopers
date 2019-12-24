@@ -239,7 +239,7 @@ class Home extends Component {
               aliasRef={charityRef}
               scrolled={scrolled}
               animation="a-wrapper--right"
-              maxHeight="maxh-550px"
+              maxHeight="maxh-700px"
               maxWidth="maxw-450px"
             >
               <Block
@@ -257,7 +257,7 @@ class Home extends Component {
               aliasRef={charityRef}
               scrolled={scrolled}
               animation="a-wrapper--left"
-              maxHeight="maxh-550px"
+              maxHeight="maxh-700px"
               maxWidth="maxw-400px"
             >
               <Block
@@ -273,7 +273,7 @@ class Home extends Component {
               aliasRef={charityRef}
               scrolled={scrolled}
               animation="a-wrapper--right"
-              maxHeight="maxh-550px"
+              maxHeight="maxh-700px"
               maxWidth="maxw-400px"
             >
               <Block
@@ -319,7 +319,8 @@ class Home extends Component {
               aliasRef={sportingRef}
               scrolled={scrolled}
               animation="a-wrapper--right"
-              maxHeight="maxh-450px"
+
+              maxHeight="maxh-600px"
               maxWidth="maxw-450px"
             >
               <Block type="info-card" column full>

@@ -146,7 +146,7 @@ class SinglePage extends Component {
               type="info-card"
               backgroundColor="background-secondary"
               color="color-primary"
-              maxHeight="maxh-450px"
+              maxHeight="maxh-550px"
               maxWidth="maxw-450px"
               margin="m-30px"
             >
