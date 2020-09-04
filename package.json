@@ -75,7 +75,7 @@
     "mini-css-extract-plugin": "^0.4.5",
     "morgan": "^1.9.1",
     "node-imagemagick": "^0.1.8",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "react-router-sitemap": "^1.2.0",
     "redux-devtools-extension": "^2.13.8",
