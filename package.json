@@ -24,7 +24,7 @@
     "compression-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.1.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "firebase": "^7.6.1",
     "google-maps-react": "^2.0.2",
     "history": "^4.10.1",
